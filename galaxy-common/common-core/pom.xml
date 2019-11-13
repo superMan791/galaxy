@@ -9,8 +9,8 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.cloud.galaxy.common</groupId>
-    <artifactId>galaxy-common-core</artifactId>
+    <artifactId>common-core</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>galaxy-common-core</name>
+    <name>common-core</name>
     <description>Demo project for Spring Boot</description>
 </project>
