@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.cloud.galaxy</groupId>
+        <artifactId>galaxy</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <groupId>com.cloud.galaxy</groupId>
+    <artifactId>galaxy-middleware</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>galaxy-middleware</name>
+    <packaging>pom</packaging>
+    <description>Demo project for Spring Boot</description>
+
+    <modules>
+        <module>middleware-auth</module>
+        <module>middleware-eureka</module>
+        <module>middleware-gateway</module>
+        <module>middleware-job</module>
+    </modules>
+
+</project>
