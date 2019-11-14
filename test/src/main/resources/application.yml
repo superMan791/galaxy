@@ -1,0 +1,8 @@
+server:
+  port: 8080
+spring:
+  profiles:
+    include: common
+  redis:
+    host: 116.62.16.146
+    port: 6379

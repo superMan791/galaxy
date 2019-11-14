@@ -44,9 +44,9 @@ public class JsonConfig {
 //            builder.serializationInclusion(JsonInclude.Include.NON_NULL);
 //            // 序列化规则配置，key相关，默认的序列化规则为序列化对象的public属性和public修饰的构造方法
 //            builder.visibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);
-//            //序列化时多了其他属性，不抛出异常
-//            builder.featuresToDisable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
-//            builder.featuresToDisable(SerializationFeature.FAIL_ON_EMPTY_BEANS);
+            //序列化时多了其他属性，不抛出异常
+            //builder.featuresToDisable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
+            //builder.featuresToDisable(SerializationFeature.FAIL_ON_EMPTY_BEANS);
             builder.modules(new GalaxyObjectMapperModule());
 
         };
@@ -63,13 +63,5 @@ class GalaxyObjectMapperModule extends SimpleModule {
         this.addDeserializer(LocalDateTime.class, new LocalDateTimeDeserializer(DateTimeFormatter.ofPattern(DatePattern.NORM_DATETIME_PATTERN)));
         this.addDeserializer(LocalDate.class, new LocalDateDeserializer(DateTimeFormatter.ofPattern(DatePattern.NORM_DATE_PATTERN)));
         this.addDeserializer(LocalTime.class, new LocalTimeDeserializer(DateTimeFormatter.ofPattern(DatePattern.NORM_TIME_PATTERN)));
-
-        /**
-         * 序列换成json时,将所有的long变成string
-         * 解决前端long类型失真的问题
-         * 于志平
-         */
-        this.addSerializer(Long.class, ToStringSerializer.instance);
-        this.addSerializer(Long.TYPE, ToStringSerializer.instance);
     }
 }

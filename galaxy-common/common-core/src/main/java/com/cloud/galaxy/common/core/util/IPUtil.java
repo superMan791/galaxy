@@ -1,11 +1,3 @@
-/**
- * Copyright (c) 2016-2019 人人开源 All rights reserved.
- *
- * https://www.renren.io
- *
- * 版权所有，侵权必究！
- */
-
 package com.cloud.galaxy.common.core.util;
 
 
@@ -17,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 /**
  * IP地址
  *
- * @author Mark sunlightcs@gmail.com
  */
 @Log4j2
 public class IPUtil {
@@ -48,7 +39,7 @@ public class IPUtil {
                 ip = request.getRemoteAddr();
             }
         } catch (Exception e) {
-        	logg.error("IPUtils ERROR ", e);
+        	log.error("IPUtils ERROR ", e);
         }
         
 //        //使用代理，则获取第一个IP地址

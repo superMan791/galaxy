@@ -1,9 +1,7 @@
 spring:
   jackson:
     # 设置属性命名策略,对应jackson下PropertyNamingStrategy中的常量值，SNAKE_CASE-返回的json驼峰式转下划线，json body下划线传到后端自动转驼峰式
-    property-naming-strategy: SNAKE_CASE
-    # 全局设置@JsonFormat的格式pattern
-    date-format: yyyy-MM-dd HH:mm:ss
+    #property-naming-strategy: SNAKE_CASE
     locale: zh_CN
     # 当地时区
     # 设置全局时区
@@ -12,7 +10,6 @@ spring:
     default-property-inclusion: NON_NULL #不为空的属性才会序列化,具体属性可看JsonInclude.Include
     # 常规默认,枚举类SerializationFeature中的枚举属性为key，值为boolean设置jackson序列化特性,具体key请看SerializationFeature源码
     serialization:
-      WRITE_DATES_AS_TIMESTAMPS: true # 返回的java.util.date转换成timestamp
       FAIL_ON_EMPTY_BEANS: true # 对象为空时是否报错，默认true
     # 枚举类DeserializationFeature中的枚举属性为key，值为boolean设置jackson反序列化特性,具体key请看DeserializationFeature源码
     deserialization:
