@@ -28,19 +28,19 @@ public class R<T> implements Serializable {
         return restResult(data, CommonConstants.SUCCESS, msg);
     }
 
-    public static <T> R<T> failed() {
+    public static <T> R<T> fail() {
         return restResult(null, CommonConstants.FAIL, null);
     }
 
-    public static <T> R<T> failed(String msg) {
+    public static <T> R<T> fail(String msg) {
         return restResult(null, CommonConstants.FAIL, msg);
     }
 
-    public static <T> R<T> failed(T data) {
+    public static <T> R<T> fail(T data) {
         return restResult(data, CommonConstants.FAIL, null);
     }
 
-    public static <T> R<T> failed(T data, String msg) {
+    public static <T> R<T> fail(T data, String msg) {
         return restResult(data, CommonConstants.FAIL, msg);
     }
 
