@@ -1,5 +1,6 @@
 package com.cloud.galaxy.test.test.controller;
 
+import com.cloud.galaxy.common.core.base.R;
 import com.cloud.galaxy.test.test.entity.Role;
 import com.cloud.galaxy.test.test.entity.User;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -8,7 +9,10 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.math.BigDecimal;
@@ -56,5 +60,10 @@ public class TestController {
     public void test3(){
     log.info(redisTemplate.opsForValue().get("count1"));
     log.info(stringRedisTemplate.opsForValue().get("count2"));
+    }
+
+    @PostMapping("test4")
+    public R  test4(@RequestBody @Validated User user){
+        return R.ok("成功！");
     }
 }
