@@ -51,4 +51,10 @@ public class TestController {
         log.info("user2: " + objectMapper.writeValueAsString(user2));
 
     }
+
+    @GetMapping("test3")
+    public void test3(){
+    log.info(redisTemplate.opsForValue().get("count1"));
+    log.info(stringRedisTemplate.opsForValue().get("count2"));
+    }
 }
