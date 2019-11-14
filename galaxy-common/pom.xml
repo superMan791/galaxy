@@ -16,6 +16,6 @@
     <description>Demo project for Spring Boot</description>
 
     <modules>
-        <module>galaxy-common-core</module>
+        <module>common-core</module>
     </modules>
 </project>
