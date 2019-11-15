@@ -17,7 +17,7 @@ spring:
       port: 27011
       username: root
       password: rootpasswd
-      database: zwskcloud-demo
+      database: test1
       authentication-database: admin
 sms:
   urls: https://BJJS009518:cd2019@sdk2.028lk.com/sdk2/BatchSend2.aspx,https://BJJS009517:cd2019@sdk2.028lk.com/sdk2/BatchSend2.aspx

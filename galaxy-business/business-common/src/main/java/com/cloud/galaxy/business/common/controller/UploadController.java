@@ -109,6 +109,7 @@ public class UploadController {
         }
         String path = function.apply(file);
         if (path != null && !StringUtils.isEmpty(path)) {
+            filePo = new FilePo();
             //上传成功后，把图片的原始文件名和fastdfs存储路径返回给用户。如果用户重复上传文件，就把已经上传过的文件返回给他
             filePo.setFileName(file.getOriginalFilename());
             filePo.setFilePath(path);

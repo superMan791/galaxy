@@ -31,6 +31,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public R methodArgumentNotValidExceptionHandler(MethodArgumentNotValidException e){
+        e.printStackTrace();
         //获取异常中随机一个异常信息
         String defaultMessage = e.getBindingResult().getFieldError().getDefaultMessage();
         return R.fail(defaultMessage);
@@ -43,6 +44,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(BindException.class)
     public R bindExceptionHandler(BindException e){
+        e.printStackTrace();
         //获取异常中随机一个异常信息
         String defaultMessage = e.getBindingResult().getFieldError().getDefaultMessage();
         return R.fail(defaultMessage);
@@ -55,6 +57,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(ConstraintViolationException.class)
     public R constraintViolationExceptionHandler(ConstraintViolationException e){
+        e.printStackTrace();
         //获取异常中第一个错误信息
         String message = e.getConstraintViolations().iterator().next().getMessage();
         return R.fail(message);
