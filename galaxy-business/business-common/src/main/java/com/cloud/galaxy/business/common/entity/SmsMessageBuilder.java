@@ -2,24 +2,17 @@ package com.cloud.galaxy.business.common.entity;
 
 import lombok.Data;
 
-import java.util.Map;
-
 @Data
 public class SmsMessageBuilder {
     private SmsMessage smsMessage = new SmsMessage();
 
-    public SmsMessageBuilder withParam(Map<String, String> param) {
-        this.smsMessage.setParam(param);
+    public SmsMessageBuilder withParam(String content) {
+        this.smsMessage.setContent(content);
         return this;
     }
 
     public SmsMessageBuilder withNationCode(String nationCode) {
         this.smsMessage.setNationCode(nationCode);
-        return this;
-    }
-
-    public SmsMessageBuilder withTemplateCode(String templateCode) {
-        this.smsMessage.setTemplateCode(templateCode);
         return this;
     }
 

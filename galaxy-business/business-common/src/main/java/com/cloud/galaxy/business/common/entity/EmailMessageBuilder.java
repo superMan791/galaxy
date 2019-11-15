@@ -8,6 +8,16 @@ import java.util.Map;
 public class EmailMessageBuilder {
     private EmailMessage emailMessage = new EmailMessage();
 
+    public EmailMessageBuilder withTitle(String title) {
+        this.emailMessage.setTitle(title);
+        return this;
+    }
+
+    public EmailMessageBuilder withContent(String content) {
+        this.emailMessage.setContent(content);
+        return this;
+    }
+
     public EmailMessageBuilder withAttachment(Map<String, String> attachment) {
         this.emailMessage.setAttachment(attachment);
         return this;
@@ -18,19 +28,8 @@ public class EmailMessageBuilder {
         return this;
     }
 
-    public EmailMessageBuilder withParam(Map<String, String> param) {
-        this.emailMessage.setParam(param);
-        return this;
-    }
-
     public EmailMessageBuilder withTo(String[] to) {
         this.emailMessage.setTo(to);
-        return this;
-    }
-
-
-    public EmailMessageBuilder withTemplateCode(String templateCode) {
-        this.emailMessage.setTemplateCode(templateCode);
         return this;
     }
 
