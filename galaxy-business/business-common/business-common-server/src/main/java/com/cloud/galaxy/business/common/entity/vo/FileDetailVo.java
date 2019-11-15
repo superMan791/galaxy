@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Data
 @ApiModel
-public class FileVo {
+public class FileDetailVo {
     @ApiModelProperty("原始文件名称")
     private String fileName;
     @ApiModelProperty("文件存储地址，暂时使用fastdfs存储地址")

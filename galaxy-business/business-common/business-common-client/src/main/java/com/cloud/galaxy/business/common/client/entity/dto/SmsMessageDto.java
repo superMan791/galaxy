@@ -1,4 +1,4 @@
-package com.cloud.galaxy.business.common.entity.dto;
+package com.cloud.galaxy.business.common.client.entity.dto;
 
 import lombok.Data;
 

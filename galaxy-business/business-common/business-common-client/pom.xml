@@ -13,26 +13,11 @@
     <name>business-common-client</name>
     <description>Demo project for Spring Boot</description>
 
-    <properties>
-        <thumbnailator>0.4.8</thumbnailator>
-        <fastdfs-client>1.26.7</fastdfs-client>
-    </properties>
-
     <dependencies>
         <dependency>
-            <groupId>net.coobird</groupId>
-            <artifactId>thumbnailator</artifactId>
-            <version>${thumbnailator}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.github.tobato</groupId>
-            <artifactId>fastdfs-client</artifactId>
-            <version>${fastdfs-client}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-mail</artifactId>
+            <groupId>com.cloud.galaxy.common</groupId>
+            <artifactId>common-core</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
 </project>

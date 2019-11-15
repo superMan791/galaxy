@@ -1,8 +1,8 @@
 package com.cloud.galaxy.business.common.controller;
 
 import com.cloud.galaxy.business.common.dao.FileMongoRepository;
-import com.cloud.galaxy.business.common.entity.po.FilePo;
-import com.cloud.galaxy.business.common.entity.vo.FileVo;
+import com.cloud.galaxy.business.common.entity.po.FileDetail;
+import com.cloud.galaxy.business.common.entity.vo.FileDetailVo;
 import com.cloud.galaxy.business.common.util.FastdfsClientUtil;
 import com.cloud.galaxy.common.core.base.R;
 import io.swagger.annotations.Api;
@@ -45,9 +45,9 @@ public class UploadController {
      */
     @ApiOperation("上传文件")
     @PostMapping(value = "uploadFile")
-    public R<FileVo> uploadFile(@RequestParam("file") MultipartFile file) {
+    public R<FileDetailVo> uploadFile(@RequestParam("file") MultipartFile file) {
         try {
-            FilePo filePo = upload(file, (path) -> {
+            FileDetail fileDetail = upload(file, (path) -> {
                 try {
                     return fastdfsClientUtil.uploadFile(file);
                 } catch (Exception e) {
@@ -55,10 +55,10 @@ public class UploadController {
                     return null;
                 }
             });
-            FileVo fileVo = new FileVo();
-            BeanUtils.copyProperties(filePo, fileVo);
-            fileVo.setContextPath(getFilePath().getData());
-            return R.ok(fileVo);
+            FileDetailVo fileDetailVo = new FileDetailVo();
+            BeanUtils.copyProperties(fileDetail, fileDetailVo);
+            fileDetailVo.setContextPath(getFilePath().getData());
+            return R.ok(fileDetailVo);
         } catch (Exception e) {
             return R.fail();
         }
@@ -72,9 +72,9 @@ public class UploadController {
      */
     @ApiOperation("上传图片并生成缩略图")
     @PostMapping(value = "uploadImage")
-    public R<FileVo> uploadImage(@RequestParam("file") MultipartFile file, int addWM, String checkImgPath) {
+    public R<FileDetailVo> uploadImage(@RequestParam("file") MultipartFile file, int addWM, String checkImgPath) {
         try {
-            FilePo filePo = upload(file, (path) -> {
+            FileDetail fileDetail = upload(file, (path) -> {
                 try {
                     return fastdfsClientUtil.uploadImageAndCrtThumbImage(file, addWM, checkImgPath);
                 } catch (Exception e) {
@@ -82,10 +82,10 @@ public class UploadController {
                     return null;
                 }
             });
-            FileVo fileVo = new FileVo();
-            BeanUtils.copyProperties(filePo, fileVo);
-            fileVo.setContextPath(getFilePath().getData());
-            return R.ok(fileVo);
+            FileDetailVo fileDetailVo = new FileDetailVo();
+            BeanUtils.copyProperties(fileDetail, fileDetailVo);
+            fileDetailVo.setContextPath(getFilePath().getData());
+            return R.ok(fileDetailVo);
         } catch (Exception e) {
             return R.fail();
         }
@@ -100,24 +100,24 @@ public class UploadController {
      * @return
      * @throws Exception
      */
-    private FilePo upload(MultipartFile file, Function<MultipartFile, String> function) throws IOException {
+    private FileDetail upload(MultipartFile file, Function<MultipartFile, String> function) throws IOException {
         String content = DigestUtils.md5Hex(file.getBytes());
         //如果图片已经上传过了，就把已经上传的文件地址返回给用户
-        FilePo filePo = fileRepository.findByContent(content);
-        if (filePo != null) {
-            return filePo;
+        FileDetail fileDetail = fileRepository.findByContent(content);
+        if (fileDetail != null) {
+            return fileDetail;
         }
         String path = function.apply(file);
         if (path != null && !StringUtils.isEmpty(path)) {
-            filePo = new FilePo();
+            fileDetail = new FileDetail();
             //上传成功后，把图片的原始文件名和fastdfs存储路径返回给用户。如果用户重复上传文件，就把已经上传过的文件返回给他
-            filePo.setFileName(file.getOriginalFilename());
-            filePo.setFilePath(path);
-            filePo.setContent(content);
-            filePo.setSize(file.getSize());
-            filePo.setStatus(1);
-            fileRepository.save(filePo);
-            return filePo;
+            fileDetail.setFileName(file.getOriginalFilename());
+            fileDetail.setFilePath(path);
+            fileDetail.setContent(content);
+            fileDetail.setSize(file.getSize());
+            fileDetail.setStatus(1);
+            fileRepository.save(fileDetail);
+            return fileDetail;
         }
         throw new RuntimeException();
     }

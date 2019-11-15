@@ -4,8 +4,8 @@ import lombok.Data;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
-@Document("File")
-public class FilePo {
+@Document("fileDetail")
+public class FileDetail {
     // 原始文件名称
     private String fileName;
     // 文件存储地址，暂时使用fastdfs存储地址
