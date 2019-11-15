@@ -17,5 +17,6 @@
 
     <modules>
         <module>common-core</module>
+        <module>common-log</module>
     </modules>
 </project>
