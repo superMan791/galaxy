@@ -1,6 +1,10 @@
 package com.cloud.galaxy.business.common.service;
 
+import com.cloud.galaxy.business.common.entity.po.MessageTemplate;
+import com.cloud.galaxy.business.common.entity.vo.GetMessageTemplateVo;
 import com.cloud.galaxy.common.core.base.IBaseService;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 
 import java.util.Map;
 
@@ -12,5 +16,17 @@ public interface IMessageTemplateService extends IBaseService {
      * @param templateCode
      * @return
      */
-    Map<String, String> createMessageByTemplate(Map<String, String> param, String templateCode, String language);
+    Map<String, String> createMessageByTemplate(Map<String, String> param, String templateCode);
+
+    MessageTemplate getByCode(String code);
+
+    Boolean insert(MessageTemplate messageTemplate);
+
+    void delete(Long id);
+
+    Boolean updateById(MessageTemplate messageTemplate);
+
+    GetMessageTemplateVo getById(Long id);
+
+    Page<GetMessageTemplateVo> findByPage(PageRequest pageRequest);
 }
