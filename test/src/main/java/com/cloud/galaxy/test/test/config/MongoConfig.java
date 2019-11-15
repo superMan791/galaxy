@@ -36,7 +36,7 @@ public class MongoConfig {
     @Primary
     @Qualifier("mysql")
     @Bean
-    public DataSourceTransactionManager dataSourceTransactionManager(DataSource dataSource){
+    public DataSourceTransactionManager dataSourceTransactionManager(DataSource dataSource) {
         return new DataSourceTransactionManager(dataSource);
     }
 }

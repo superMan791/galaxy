@@ -8,16 +8,9 @@
         <version>0.0.1-SNAPSHOT</version>
         <relativePath/>
     </parent>
-
     <groupId>com.cloud.galaxy</groupId>
-    <artifactId>galaxy-common</artifactId>
+    <artifactId>galaxy-demo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>galaxy-common</name>
-    <packaging>pom</packaging>
+    <name>galaxy-demo</name>
     <description>Demo project for Spring Boot</description>
-
-    <modules>
-        <module>common-core</module>
-        <module>common-log</module>
-    </modules>
 </project>
