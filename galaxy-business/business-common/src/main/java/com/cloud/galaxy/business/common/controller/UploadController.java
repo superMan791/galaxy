@@ -33,9 +33,13 @@ public class UploadController {
     @Autowired
     FastdfsClientUtil fastdfsClientUtil;
     @Autowired
-    FileMongoRepository mongoRepository;
+    FileMongoRepository fileRepository;
     @Value("${fdfs.tracker-list}")
     private String[] contextPaths;
+    @Value("${img.height:}")
+    private Integer height;
+    @Value("${img.width:}")
+    private Integer width;
 
     /**
      * 上传文件
@@ -76,7 +80,7 @@ public class UploadController {
         try {
             FilePo filePo = upload(file, (path) -> {
                 try {
-                    return fastdfsClientUtil.uploadImageAndCrtThumbImage(file, addWM, checkImgPath);
+                    return fastdfsClientUtil.uploadImageAndCrtThumbImage(file, addWM, checkImgPath,width,height);
                 } catch (Exception e) {
                     e.printStackTrace();
                     return null;
@@ -103,7 +107,7 @@ public class UploadController {
     private FilePo upload(MultipartFile file, Function<MultipartFile, String> function) throws IOException {
         String content = DigestUtils.md5Hex(file.getBytes());
         //如果图片已经上传过了，就把已经上传的文件地址返回给用户
-        FilePo filePo = mongoRepository.findByContent(content);
+        FilePo filePo = fileRepository.findByContent(content);
         if (filePo != null) {
             return filePo;
         }
@@ -116,7 +120,7 @@ public class UploadController {
             filePo.setContent(content);
             filePo.setSize(file.getSize());
             filePo.setStatus(1);
-            mongoRepository.save(filePo);
+            fileRepository.save(filePo);
             return filePo;
         }
         throw new RuntimeException();

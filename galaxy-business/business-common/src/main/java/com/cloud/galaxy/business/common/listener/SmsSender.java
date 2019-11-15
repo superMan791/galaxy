@@ -2,7 +2,7 @@ package com.cloud.galaxy.business.common.listener;
 
 import com.cloud.galaxy.business.common.entity.SmsMessage;
 import com.cloud.galaxy.business.common.service.IMessageTemplateService;
-import com.cloud.galaxy.business.common.util.SMSUtils;
+import com.cloud.galaxy.business.common.util.SMSUtil;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
@@ -13,11 +13,11 @@ import java.util.Map;
 @Component
 public class SmsSender {
     @Autowired
-    private SMSUtils smsUtils;
+    private SMSUtil smsUtil;
     @Autowired
     private IMessageTemplateService messageTemplateService;
 
-    @KafkaListener(topics = "sms")
+    //@KafkaListener(topics = "sms")
     public void smsListener(SmsMessage smsMessage) throws JsonProcessingException {
 
         Map<String, String> msg = messageTemplateService.createMessageByTemplate(smsMessage.getParam(), smsMessage.getTemplateCode());
@@ -25,6 +25,6 @@ public class SmsSender {
         if (msg == null || msg.get("content") == null) {
             return;
         }
-        smsUtils.sendSMSContent(smsMessage.getNationCode(), smsMessage.getPhoneNumbers(), msg.get("content"));
+        smsUtil.sendSMSContent(smsMessage.getNationCode(), smsMessage.getPhoneNumbers(), msg.get("content"));
     }
 }

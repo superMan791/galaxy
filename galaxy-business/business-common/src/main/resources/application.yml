@@ -23,6 +23,19 @@ spring:
     basePackage: com.cloud.galaxy
     license:
       name: galaxy
+  kafka:
+    bootstrap-servers: 192.168.21.25:9092,192.168.21.29:9092,192.168.21.30:9092
+    consumer:
+      group-id: kafka2
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      batch-size: 65536
+      buffer-memory: 524288
+      bootstrap-servers: 192.168.21.25:9092,192.168.21.29:9092,192.168.21.30:9092
 sms:
   urls: https://BJJS009518:cd2019@sdk2.028lk.com/sdk2/BatchSend2.aspx,https://BJJS009517:cd2019@sdk2.028lk.com/sdk2/BatchSend2.aspx
   international:
@@ -36,3 +49,6 @@ fdfs:
   thumb-image:
     width: 150
     height: 150
+img:
+   width: 50
+   height: 50

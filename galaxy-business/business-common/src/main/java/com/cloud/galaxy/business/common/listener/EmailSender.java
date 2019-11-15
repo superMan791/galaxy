@@ -28,7 +28,7 @@ public class EmailSender {
     @Autowired
     private IMessageTemplateService messageTemplateService;
 
-    @KafkaListener(topics = "email")
+    //@KafkaListener(topics = "email")
     public void emailListener(EmailMessage emailMessage) throws MessagingException {
         //如果接收邮件的人是空的，直接返回，不发了
         if (emailMessage.getTo() != null && emailMessage.getTo().length == 0) {

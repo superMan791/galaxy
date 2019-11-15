@@ -17,7 +17,7 @@ import java.util.regex.Pattern;
 
 @Slf4j
 @Component
-public class SMSUtils {
+public class SMSUtil {
     @Value("${sms.urls}")
     private String[] urls;
 
