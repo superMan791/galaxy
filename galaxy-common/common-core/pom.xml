@@ -21,6 +21,11 @@
             <artifactId>guava</artifactId>
             <version>28.1-jre</version>
         </dependency>
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>1.13</version>
+        </dependency>
         <!--swagger模块-->
         <dependency>
             <groupId>io.springfox</groupId>

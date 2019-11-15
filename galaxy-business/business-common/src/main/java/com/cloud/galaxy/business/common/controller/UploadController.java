@@ -1,5 +1,21 @@
 package com.cloud.galaxy.business.common.controller;
 
+import com.cloud.galaxy.business.common.dao.FileMongoRepository;
+import com.cloud.galaxy.business.common.entity.po.FilePo;
+import com.cloud.galaxy.business.common.entity.vo.FileVo;
+import com.cloud.galaxy.business.common.util.FastdfsClientUtil;
+import com.cloud.galaxy.common.core.base.R;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import org.apache.commons.codec.digest.DigestUtils;
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import javax.servlet.http.HttpServletResponse;
 import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -9,26 +25,6 @@ import java.net.URLConnection;
 import java.net.URLEncoder;
 import java.util.Random;
 import java.util.function.Function;
-
-import javax.servlet.http.HttpServletResponse;
-
-import com.cloud.galaxy.business.common.dao.FileMongoRepository;
-import com.cloud.galaxy.business.common.entity.po.FilePo;
-import com.cloud.galaxy.business.common.entity.vo.FileVo;
-import com.cloud.galaxy.business.common.util.FastdfsClientUtil;
-import com.cloud.galaxy.common.core.base.R;
-import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.multipart.MultipartFile;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
 
 @Api(tags = "文件上传下载")
 @RestController
@@ -105,7 +101,7 @@ public class UploadController {
      * @throws Exception
      */
     private  FilePo upload(MultipartFile file, Function<MultipartFile, String> function) throws IOException {
-        String content = new MD5().digestHex16(file.getBytes());
+        String content = DigestUtils.md5Hex(file.getBytes());
         //如果图片已经上传过了，就把已经上传的文件地址返回给用户
         FilePo filePo = mongoRepository.findByContent(content);
         if (filePo != null) {
