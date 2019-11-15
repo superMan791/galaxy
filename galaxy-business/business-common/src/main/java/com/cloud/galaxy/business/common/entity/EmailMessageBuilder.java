@@ -34,11 +34,6 @@ public class EmailMessageBuilder {
         return this;
     }
 
-    public EmailMessageBuilder withLanguage(String language) {
-        this.emailMessage.setLanguage(language);
-        return this;
-    }
-
     public EmailMessage build() {
         return this.emailMessage;
     }

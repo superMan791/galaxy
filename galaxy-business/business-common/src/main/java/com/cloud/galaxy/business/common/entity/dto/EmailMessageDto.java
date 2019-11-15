@@ -1,15 +1,14 @@
-package com.cloud.galaxy.business.common.entity;
+package com.cloud.galaxy.business.common.entity.dto;
 
 import lombok.Data;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.io.Serializable;
 import java.util.Map;
 
 @Data
-public class EmailMessage implements Serializable {
+public class EmailMessageDto {
     private Map<String, String> param;        //内容
     @NotNull(message = "接收人不能为空")
     @Size(min = 1, message = "接收人不能少于一个")

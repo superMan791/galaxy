@@ -28,11 +28,6 @@ public class SmsMessageBuilder {
         return this;
     }
 
-    public SmsMessageBuilder withLanguage(String language) {
-        this.smsMessage.setLanguage(language);
-        return this;
-    }
-
     public SmsMessage build() {
         return this.smsMessage;
     }

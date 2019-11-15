@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.security.PermitAll;
 
-@Api(tags = "消息模板")
+@Api(tags = "短信和邮件模板管理")
 @RestController
 @RequestMapping("template")
 @Slf4j
