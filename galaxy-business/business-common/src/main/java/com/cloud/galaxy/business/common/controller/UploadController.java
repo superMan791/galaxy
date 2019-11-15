@@ -80,7 +80,7 @@ public class UploadController {
         try {
             FilePo filePo = upload(file, (path) -> {
                 try {
-                    return fastdfsClientUtil.uploadImageAndCrtThumbImage(file, addWM, checkImgPath,width,height);
+                    return fastdfsClientUtil.uploadImageAndCrtThumbImage(file, addWM, checkImgPath, width, height);
                 } catch (Exception e) {
                     e.printStackTrace();
                     return null;
