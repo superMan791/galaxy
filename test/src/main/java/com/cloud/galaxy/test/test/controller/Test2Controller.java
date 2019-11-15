@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-public class Test {
+public class Test2Controller {
     @Autowired
     MongoTemplate mongoTemplate;
     @Autowired

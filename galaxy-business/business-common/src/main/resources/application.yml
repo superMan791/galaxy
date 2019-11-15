@@ -19,6 +19,10 @@ spring:
       password: rootpasswd
       database: test1
       authentication-database: admin
+  swagger:
+    basePackage: com.cloud.galaxy
+    license:
+      name: galaxy
 sms:
   urls: https://BJJS009518:cd2019@sdk2.028lk.com/sdk2/BatchSend2.aspx,https://BJJS009517:cd2019@sdk2.028lk.com/sdk2/BatchSend2.aspx
   international:
