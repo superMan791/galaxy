@@ -1,20 +1,19 @@
 package com.cloud.galaxy.business.common.service.impl;
 
 
-        import com.cloud.galaxy.business.common.dao.MessageTemplateRepository;
-        import com.cloud.galaxy.business.common.entity.po.MessageTemplate;
-        import com.cloud.galaxy.business.common.entity.vo.GetMessageTemplateVo;
-        import com.cloud.galaxy.business.common.service.IMessageTemplateService;
-        import com.cloud.galaxy.common.core.base.BaseServiceImpl;
-        import com.cloud.galaxy.common.core.base.R;
-        import org.springframework.beans.BeanUtils;
-        import org.springframework.beans.factory.annotation.Autowired;
-        import org.springframework.data.domain.Page;
-        import org.springframework.data.domain.PageRequest;
-        import org.springframework.stereotype.Service;
+import com.cloud.galaxy.business.common.dao.MessageTemplateRepository;
+import com.cloud.galaxy.business.common.entity.po.MessageTemplate;
+import com.cloud.galaxy.business.common.entity.vo.GetMessageTemplateVo;
+import com.cloud.galaxy.business.common.service.IMessageTemplateService;
+import com.cloud.galaxy.common.core.base.BaseServiceImpl;
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.stereotype.Service;
 
-        import java.util.HashMap;
-        import java.util.Map;
+import java.util.HashMap;
+import java.util.Map;
 
 @Service
 public class MessageTemplateServiceImpl extends BaseServiceImpl implements IMessageTemplateService {

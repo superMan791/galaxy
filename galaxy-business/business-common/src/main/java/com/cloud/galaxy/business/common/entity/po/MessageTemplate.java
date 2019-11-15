@@ -1,7 +1,3 @@
-/*
- *  Copyright (c) 2019-2019 ZWSK. All rights reserved.
- */
-
 package com.cloud.galaxy.business.common.entity.po;
 
 import java.util.Date;

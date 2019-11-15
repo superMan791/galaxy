@@ -47,7 +47,7 @@ public class EmailSender {
         // multipart模式
         MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(mimeMessage, true);
         mimeMessageHelper.setTo(emailMessage.getTo());
-        Map<String, String> msg = messageTemplateService.createMessageByTemplate(emailMessage.getParam(), emailMessage.getTemplateCode(), emailMessage.getLanguage());
+        Map<String, String> msg = messageTemplateService.createMessageByTemplate(emailMessage.getParam(), emailMessage.getTemplateCode());
         //如果没有消息模板，或者消息模板内容是空的，丢弃该消息
         if (msg == null || msg.isEmpty()) {
             return;
@@ -87,7 +87,7 @@ public class EmailSender {
     public void sendSimpleMail(EmailMessage emailMessage) {
         SimpleMailMessage message = new SimpleMailMessage();
         //如果没有消息模板，丢弃该消息
-        Map<String, String> msg = messageTemplateService.createMessageByTemplate(emailMessage.getParam(), emailMessage.getTemplateCode(), emailMessage.getLanguage());
+        Map<String, String> msg = messageTemplateService.createMessageByTemplate(emailMessage.getParam(), emailMessage.getTemplateCode());
         if (msg == null || msg.isEmpty()) {
             return;
         }
