@@ -55,8 +55,8 @@ public class UploadController {
                     return null;
                 }
             });
-            FileVo fileVo=new FileVo();
-            BeanUtils.copyProperties(filePo,fileVo);
+            FileVo fileVo = new FileVo();
+            BeanUtils.copyProperties(filePo, fileVo);
             fileVo.setContextPath(getFilePath().getData());
             return R.ok(fileVo);
         } catch (Exception e) {
@@ -65,25 +65,25 @@ public class UploadController {
     }
 
     /**
-     * 上传图片并生成缩略图
+     * 上传图片,可以生成水印
      *
      * @param file
      * @return
      */
     @ApiOperation("上传图片并生成缩略图")
     @PostMapping(value = "uploadImage")
-    public R<FileVo> uploadImage(@RequestParam("file") MultipartFile file,int addWM,String checkImgPath) {
+    public R<FileVo> uploadImage(@RequestParam("file") MultipartFile file, int addWM, String checkImgPath) {
         try {
             FilePo filePo = upload(file, (path) -> {
                 try {
-                    return fastdfsClientUtil.uploadImageAndCrtThumbImage(file,addWM,checkImgPath);
+                    return fastdfsClientUtil.uploadImageAndCrtThumbImage(file, addWM, checkImgPath);
                 } catch (Exception e) {
                     e.printStackTrace();
                     return null;
                 }
             });
-            FileVo fileVo=new FileVo();
-            BeanUtils.copyProperties(filePo,fileVo);
+            FileVo fileVo = new FileVo();
+            BeanUtils.copyProperties(filePo, fileVo);
             fileVo.setContextPath(getFilePath().getData());
             return R.ok(fileVo);
         } catch (Exception e) {
@@ -100,7 +100,7 @@ public class UploadController {
      * @return
      * @throws Exception
      */
-    private  FilePo upload(MultipartFile file, Function<MultipartFile, String> function) throws IOException {
+    private FilePo upload(MultipartFile file, Function<MultipartFile, String> function) throws IOException {
         String content = DigestUtils.md5Hex(file.getBytes());
         //如果图片已经上传过了，就把已经上传的文件地址返回给用户
         FilePo filePo = mongoRepository.findByContent(content);
@@ -120,6 +120,7 @@ public class UploadController {
         }
         throw new RuntimeException();
     }
+
     @ApiOperation("获取图片地址")
     @GetMapping("getFilePath")
     public R<String> getFilePath() {

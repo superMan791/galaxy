@@ -27,7 +27,7 @@ public class MessageTemplateServiceImpl extends BaseServiceImpl implements IMess
     @Override
     public Map<String, String> createMessageByTemplate(Map<String, String> param, String templateCode, String language) {
         MessageTemplate messageTemplate = messageTemplateRepository.findByCode(templateCode);
-        String content=messageTemplate.getContent();
+        String content = messageTemplate.getContent();
         //如果参数不为空，对参数进行替换
         if (param != null && param.size() > 0) {
             for (String key : param.keySet()) {
@@ -36,7 +36,7 @@ public class MessageTemplateServiceImpl extends BaseServiceImpl implements IMess
         }
         Map<String, String> result = new HashMap<>();
         result.put("content", content);
-        result.put("title",messageTemplate.getTitle());
+        result.put("title", messageTemplate.getTitle());
         return result;
     }
 }

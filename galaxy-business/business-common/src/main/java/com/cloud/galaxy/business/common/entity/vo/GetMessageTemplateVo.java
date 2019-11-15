@@ -16,13 +16,13 @@ public class GetMessageTemplateVo implements Serializable {
     @ApiModelProperty("引用代码")
     private String code;
 
-    @ApiModelProperty("中文标题")
+    @ApiModelProperty("标题")
     private String title;
 
     @ApiModelProperty("模板名称")
     private String name;
 
-    @ApiModelProperty("中文内容")
+    @ApiModelProperty("内容")
     private String content;
 
     @ApiModelProperty("说明，如参数代码")

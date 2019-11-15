@@ -33,7 +33,8 @@ public class EmailMessageBuilder {
         this.emailMessage.setTemplateCode(templateCode);
         return this;
     }
-    public EmailMessageBuilder withLanguage(String language){
+
+    public EmailMessageBuilder withLanguage(String language) {
         this.emailMessage.setLanguage(language);
         return this;
     }

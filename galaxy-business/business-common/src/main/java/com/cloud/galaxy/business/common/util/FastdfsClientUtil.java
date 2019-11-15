@@ -35,35 +35,36 @@ public class FastdfsClientUtil {
 
 
         //生成缩略图
-        StorePath storePath=this.storageClient.uploadFile(multipartFile.getInputStream(), multipartFile.getSize(), originalFilename, null);
+        StorePath storePath = this.storageClient.uploadFile(multipartFile.getInputStream(), multipartFile.getSize(), originalFilename, null);
 
         String path = storePath.getFullPath();
 
         return path;
     }
+
     //上传文件
-    public String uploadImageAndCrtThumbImage(MultipartFile multipartFile,int addWM,String checkImagePath) throws Exception {
+    public String uploadImageAndCrtThumbImage(MultipartFile multipartFile, int addWM, String checkImagePath) throws Exception {
 
         //文件名
         String originalFilename = multipartFile.getOriginalFilename().substring(multipartFile.getOriginalFilename().lastIndexOf(".") + 1);
         // 文件扩展名
         String ext = originalFilename.substring(originalFilename.lastIndexOf(".") + 1, originalFilename.length());
-        StorePath storePath =null;
-        if(addWM==1){
+        StorePath storePath = null;
+        if (addWM == 1) {
             URL checkUrl = new URL(checkImagePath);
             BufferedImage checkImage = ImageIO.read(checkUrl);
-            BufferedImage sourceImage= ImageIO.read(multipartFile.getInputStream());
+            BufferedImage sourceImage = ImageIO.read(multipartFile.getInputStream());
             log.info(sourceImage.getWidth());
             log.info(sourceImage.getHeight());
-            BufferedImage sourceImageNew= Thumbnails.of(sourceImage).size(sourceImage.getWidth(),sourceImage.getHeight())
-                    .watermark(Positions.CENTER_RIGHT, checkImage,0.5f).asBufferedImage();
+            BufferedImage sourceImageNew = Thumbnails.of(sourceImage).size(sourceImage.getWidth(), sourceImage.getHeight())
+                    .watermark(Positions.CENTER_RIGHT, checkImage, 0.5f).asBufferedImage();
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             ImageOutputStream imageOutput = ImageIO.createImageOutputStream(byteArrayOutputStream);
             ImageIO.write(sourceImageNew, ext, imageOutput);
             InputStream inputStream = new ByteArrayInputStream(byteArrayOutputStream.toByteArray());
-            storePath = this.storageClient.uploadFile(inputStream, byteArrayOutputStream.toByteArray().length, originalFilename, null);
-        }else{
-            storePath = this.storageClient.uploadFile(multipartFile.getInputStream(), multipartFile.getSize(), originalFilename, null);
+            storePath = this.storageClient.uploadImageAndCrtThumbImage(inputStream, byteArrayOutputStream.toByteArray().length, originalFilename, null);
+        } else {
+            storePath = this.storageClient.uploadImageAndCrtThumbImage(multipartFile.getInputStream(), multipartFile.getSize(), originalFilename, null);
         }
         String path = storePath.getFullPath();
 

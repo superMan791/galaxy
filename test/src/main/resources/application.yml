@@ -34,12 +34,3 @@ spring:
       uri: mongodb://root:rootpasswd@192.168.21.30:27011,192.168.21.30:27012,192.168.21.29:27013/test?authSource=admin
   jooq:
     sql-dialect: mysql
-mybatis-plus:
-  global-config:
-    db-config:
-      id-type: id_worker
-    datacenter-id: 3
-    worker-id: 0
-  type-aliases-package: com.zwsk.cloud.amc.entity
-  configuration:
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

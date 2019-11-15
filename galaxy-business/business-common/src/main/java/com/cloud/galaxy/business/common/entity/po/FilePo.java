@@ -4,7 +4,7 @@ import lombok.Data;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
-@Document("ZwskCloudFile")
+@Document("File")
 public class FilePo {
     // 原始文件名称
     private String fileName;

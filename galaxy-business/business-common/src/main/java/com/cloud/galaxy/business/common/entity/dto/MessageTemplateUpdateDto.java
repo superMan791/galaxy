@@ -14,7 +14,7 @@ public class MessageTemplateUpdateDto implements Serializable {
      * 中文标题
      */
     @Length(min = 1, max = 50, message = "字段长度在50位以下")
-    @ApiModelProperty("邮件标题")
+    @ApiModelProperty("标题")
     private String title;
 
     @Length(min = 1, max = 50, message = "字段长度在50位以下")
@@ -24,7 +24,7 @@ public class MessageTemplateUpdateDto implements Serializable {
     /**
      * 中文内容
      */
-    @ApiModelProperty("中文内容")
+    @ApiModelProperty("内容")
     private String content;
 
     /**

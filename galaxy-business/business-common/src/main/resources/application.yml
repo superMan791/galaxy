@@ -11,13 +11,24 @@ spring:
     port: 25
     protocol: smtp
     default-encoding: UTF-8
-  rabbitmq:
-    username: test_admin
-    password: 123456
-    addresses: 192.168.21.25:5673 #可以配置多个，用','隔开
+  data:
+    mongodb:
+      host: 192.168.21.30
+      port: 27011
+      username: root
+      password: rootpasswd
+      database: zwskcloud-demo
+      authentication-database: admin
 sms:
   urls: https://BJJS009518:cd2019@sdk2.028lk.com/sdk2/BatchSend2.aspx,https://BJJS009517:cd2019@sdk2.028lk.com/sdk2/BatchSend2.aspx
   international:
     url: https://BJJS009571:cd2019@sdk2.028lk.com/sdk2/BatchSend2.aspx,https://BJJS009570:cd2019@sdk2.028lk.com/sdk2/BatchSend2.aspx
   hour_max_send: 5
   day_max_send:  10
+fdfs:
+  tracker-list: 192.168.21.29:22122
+  connect-timeout: 60
+  so-timeout: 60
+  thumb-image:
+    width: 150
+    height: 150

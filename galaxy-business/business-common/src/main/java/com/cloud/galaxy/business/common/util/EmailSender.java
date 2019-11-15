@@ -27,6 +27,7 @@ public class EmailSender {
 
     @Value("${spring.mail.username}")
     private String from;
+
     public void emailListener(EmailMessage emailMessage) throws MessagingException {
         //如果接收邮件的人是空的，直接返回，不发了
         if (emailMessage.getTo() != null && emailMessage.getTo().length == 0) {

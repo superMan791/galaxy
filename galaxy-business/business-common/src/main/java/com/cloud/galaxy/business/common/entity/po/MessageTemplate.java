@@ -8,6 +8,7 @@ import java.util.Date;
 
 import com.cloud.galaxy.common.core.base.BaseEntity;
 import lombok.Data;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
  * @Package: com.cloud.galaxy.business.common.entity.po
@@ -18,6 +19,7 @@ import lombok.Data;
  * @Version: 1.0
  */
 @Data
+@Document("messageTemplate")
 public class MessageTemplate extends BaseEntity<MessageTemplate> {
 
     private static final long serialVersionUID = 1L;
