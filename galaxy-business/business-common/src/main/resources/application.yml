@@ -47,8 +47,6 @@ fdfs:
   connect-timeout: 60
   so-timeout: 60
   thumb-image:
-    width: 150
-    height: 150
-img:
-   width: 50
-   height: 50
+    width: 1
+    height: 1
+

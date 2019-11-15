@@ -36,10 +36,6 @@ public class UploadController {
     FileMongoRepository fileRepository;
     @Value("${fdfs.tracker-list}")
     private String[] contextPaths;
-    @Value("${img.height:}")
-    private Integer height;
-    @Value("${img.width:}")
-    private Integer width;
 
     /**
      * 上传文件
@@ -80,7 +76,7 @@ public class UploadController {
         try {
             FilePo filePo = upload(file, (path) -> {
                 try {
-                    return fastdfsClientUtil.uploadImageAndCrtThumbImage(file, addWM, checkImgPath, width, height);
+                    return fastdfsClientUtil.uploadImageAndCrtThumbImage(file, addWM, checkImgPath);
                 } catch (Exception e) {
                     e.printStackTrace();
                     return null;

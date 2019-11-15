@@ -43,7 +43,7 @@ public class FastdfsClientUtil {
     }
 
     //上传文件
-    public String uploadImageAndCrtThumbImage(MultipartFile multipartFile, Integer addWM, String checkImagePath, Integer width, Integer height) throws Exception {
+    public String uploadImageAndCrtThumbImage(MultipartFile multipartFile, Integer addWM, String checkImagePath) throws Exception {
 
         //文件名
         String originalFilename = multipartFile.getOriginalFilename().substring(multipartFile.getOriginalFilename().lastIndexOf(".") + 1);
@@ -56,9 +56,7 @@ public class FastdfsClientUtil {
             BufferedImage sourceImage = ImageIO.read(multipartFile.getInputStream());
             log.info(sourceImage.getWidth());
             log.info(sourceImage.getHeight());
-            width = width == null ? sourceImage.getWidth() : width;
-            height = height == null ? sourceImage.getHeight() : height;
-            BufferedImage sourceImageNew = Thumbnails.of(sourceImage).size(width, height)
+            BufferedImage sourceImageNew = Thumbnails.of(sourceImage).size(sourceImage.getWidth(), sourceImage.getHeight())
                     .watermark(Positions.CENTER_RIGHT, checkImage, 0.5f).asBufferedImage();
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             ImageOutputStream imageOutput = ImageIO.createImageOutputStream(byteArrayOutputStream);
