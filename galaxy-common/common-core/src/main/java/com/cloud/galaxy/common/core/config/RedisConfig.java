@@ -1,4 +1,3 @@
-
 package com.cloud.galaxy.common.core.config;
 
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
