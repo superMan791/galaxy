@@ -16,6 +16,7 @@
 
     <properties>
         <java.version>11</java.version>
+        <jooq.version>3.12.3</jooq.version>
     </properties>
 
     <dependencies>
@@ -32,6 +33,17 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jooq</groupId>
+            <artifactId>jooq-meta</artifactId>
+            <version>${jooq.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jooq</groupId>
+            <artifactId>jooq-codegen</artifactId>
+            <version>${jooq.version}</version>
         </dependency>
     </dependencies>
 </project>

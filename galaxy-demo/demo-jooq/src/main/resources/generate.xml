@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration xmlns="http://www.jooq.org/xsd/jooq-codegen-3.12.0.xsd">
+  <!-- Configure the database connection here -->
+  <jdbc>
+    <driver>com.mysql.cj.jdbc.Driver</driver>
+    <url>jdbc:mysql://116.62.16.146:3306/demo</url>
+    <user>root</user>
+    <password>root</password>
+  </jdbc>
+
+  <generator>
+    <!-- The default code generator. You can override this one, to generate your own code style.
+         Supported generators:
+         - org.jooq.codegen.JavaGenerator
+         - org.jooq.codegen.ScalaGenerator
+         Defaults to org.jooq.codegen.JavaGenerator -->
+    <name>org.jooq.codegen.JavaGenerator</name>
+
+    <database>
+      <!-- The database type. The format here is:
+           org.jooq.meta.[database].[database]Database -->
+      <name>org.jooq.meta.mysql.MySQLDatabase</name>
+
+      <!-- The database schema (or in the absence of schema support, in your RDBMS this
+           can be the owner, user, database name) to be generated -->
+      <inputSchema>demo</inputSchema>
+
+      <!-- All elements that are generated from your schema
+           (A Java regular expression. Use the pipe to separate several expressions)
+           Watch out for case-sensitivity. Depending on your database, this might be important! -->
+      <includes>.*</includes>
+
+      <!-- All elements that are excluded from your schema
+           (A Java regular expression. Use the pipe to separate several expressions).
+           Excludes match before includes, i.e. excludes have a higher priority -->
+      <excludes></excludes>
+    </database>
+
+    <target>
+      <!-- The destination package of your generated classes (within the destination directory) -->
+      <packageName>com.cloud.galaxy.demo.jooq.db.gen</packageName>
+
+      <directory>G:\workspace\galaxy\galaxy-demo\demo-jooq\src\main\java</directory>
+    </target>
+  </generator>
+</configuration>
