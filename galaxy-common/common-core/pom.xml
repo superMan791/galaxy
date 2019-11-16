@@ -21,10 +21,16 @@
         <swagger-springboot.version>2.2.0</swagger-springboot.version>
         <kaptcha.version>2.3.2</kaptcha.version>
         <servlet.version>4.0.1</servlet.version>
+        <poi.version>4.1.1</poi.version>
 
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>${poi.version}</version>
+        </dependency>
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
