@@ -1,7 +1,7 @@
 package com.cloud.galaxy.business.common.listener;
 
+import com.cloud.galaxy.business.common.client.entity.dto.EmailMessageDto;
 import com.cloud.galaxy.business.common.entity.EmailMessage;
-import com.cloud.galaxy.business.common.entity.dto.EmailMessageDto;
 import com.cloud.galaxy.business.common.service.IMessageTemplateService;
 import com.cloud.galaxy.business.common.util.SendEmailUtil;
 import lombok.extern.log4j.Log4j2;
@@ -14,7 +14,7 @@ import java.util.Map;
 
 @Log4j2
 @Component
-public class EmailSender {
+public class EmailListenter {
     @Autowired
     SendEmailUtil sendEmailUtil;
     @Autowired
