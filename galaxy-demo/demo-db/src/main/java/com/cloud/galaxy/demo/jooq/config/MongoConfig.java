@@ -1,5 +1,5 @@
 
-package com.cloud.galaxy.test.test.config;
+package com.cloud.galaxy.demo.jooq.config;
 
 
 import org.springframework.beans.factory.annotation.Qualifier;
