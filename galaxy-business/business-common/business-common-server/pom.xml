@@ -33,6 +33,11 @@
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
+            <groupId>org.springframework.kafka</groupId>
+            <artifactId>spring-kafka</artifactId>
+        </dependency>
+
+        <dependency>
             <groupId>com.cloud.galaxy.business.common</groupId>
             <artifactId>business-common-client</artifactId>
             <version>0.0.1-SNAPSHOT</version>
