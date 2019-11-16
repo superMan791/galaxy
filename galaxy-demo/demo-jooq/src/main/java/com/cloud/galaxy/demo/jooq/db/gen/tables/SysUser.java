@@ -9,9 +9,9 @@ import com.cloud.galaxy.demo.jooq.db.gen.Indexes;
 import com.cloud.galaxy.demo.jooq.db.gen.Keys;
 import com.cloud.galaxy.demo.jooq.db.gen.tables.records.SysUserRecord;
 
-import java.math.BigInteger;
-import java.sql.Date;
-import java.sql.Timestamp;
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
 
@@ -28,6 +28,7 @@ import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.UniqueKey;
 import org.jooq.impl.DSL;
+import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
 
 
@@ -72,17 +73,17 @@ public class SysUser extends TableImpl<SysUserRecord> {
     /**
      * The column <code>demo.sys_user.birth</code>.
      */
-    public final TableField<SysUserRecord, Date> BIRTH = createField(DSL.name("birth"), org.jooq.impl.SQLDataType.DATE, this, "");
+    public final TableField<SysUserRecord, LocalDate> BIRTH = createField(DSL.name("birth"), SQLDataType.LOCALDATE, this, "");
 
     /**
      * The column <code>demo.sys_user.create_time</code>.
      */
-    public final TableField<SysUserRecord, Timestamp> CREATE_TIME = createField(DSL.name("create_time"), org.jooq.impl.SQLDataType.TIMESTAMP, this, "");
+    public final TableField<SysUserRecord, LocalDateTime> CREATE_TIME = createField(DSL.name("create_time"), SQLDataType.LOCALDATETIME, this, "");
 
     /**
      * The column <code>demo.sys_user.balance</code>.
      */
-    public final TableField<SysUserRecord, BigInteger> BALANCE = createField(DSL.name("balance"), org.jooq.impl.SQLDataType.DECIMAL_INTEGER.precision(20), this, "");
+    public final TableField<SysUserRecord, BigDecimal> BALANCE = createField(DSL.name("balance"), org.jooq.impl.SQLDataType.DECIMAL.precision(20), this, "");
 
     /**
      * Create a <code>demo.sys_user</code> table reference
@@ -168,7 +169,7 @@ public class SysUser extends TableImpl<SysUserRecord> {
     // -------------------------------------------------------------------------
 
     @Override
-    public Row5<Long, String, Date, Timestamp, BigInteger> fieldsRow() {
+    public Row5<Long, String, LocalDate, LocalDateTime, BigDecimal> fieldsRow() {
         return (Row5) super.fieldsRow();
     }
 }
