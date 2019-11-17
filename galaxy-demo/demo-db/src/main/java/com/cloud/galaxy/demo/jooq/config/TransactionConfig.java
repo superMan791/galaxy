@@ -25,7 +25,7 @@ import javax.sql.DataSource;
 
 @Configuration
 @EnableTransactionManagement
-public class MongoConfig {
+public class TransactionConfig {
 
     @Bean
     @Qualifier("mongodb")

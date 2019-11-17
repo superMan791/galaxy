@@ -20,7 +20,6 @@
         <module>galaxy-business</module>
         <module>galaxy-middleware</module>
         <module>galaxy-common</module>
-        <module>test</module>
     </modules>
 
     <dependencies>

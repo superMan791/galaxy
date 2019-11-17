@@ -56,5 +56,16 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-mail</artifactId>
         </dependency>
+<!--        访问本机/kaptcha 路径获取图片验证码-->
+        <dependency>
+            <groupId>com.github.vindell</groupId>
+            <artifactId>spring-boot-starter-kaptcha</artifactId>
+            <version>1.0.3.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>com.kuisama.zxing</groupId>
+            <artifactId>zxing-spring-boot-starter</artifactId>
+            <version>1.0.0.RELEASE</version>
+        </dependency>
     </dependencies>
 </project>
