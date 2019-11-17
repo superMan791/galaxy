@@ -6,3 +6,7 @@ spring:
     password: root
   jooq:
     sql-dialect: mysql
+  data:
+    mongodb:
+      database: test
+      uri: mongodb://116.62.62.146:27017
