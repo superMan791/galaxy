@@ -19,18 +19,10 @@
         <guava.version>28.1-jre</guava.version>
         <common-codec>1.13</common-codec>
         <swagger-springboot.version>2.2.0</swagger-springboot.version>
-        <kaptcha.version>2.3.2</kaptcha.version>
         <servlet.version>4.0.1</servlet.version>
-        <poi.version>4.1.1</poi.version>
-
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>org.apache.poi</groupId>
-            <artifactId>poi</artifactId>
-            <version>${poi.version}</version>
-        </dependency>
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
@@ -53,12 +45,6 @@
         <dependency>
             <groupId>com.fasterxml.jackson.datatype</groupId>
             <artifactId>jackson-datatype-jsr310</artifactId>
-        </dependency>
-        <!--图片验证码-->
-        <dependency>
-            <groupId>com.github.penggle</groupId>
-            <artifactId>kaptcha</artifactId>
-            <version>${kaptcha.version}</version>
         </dependency>
         <!--redis配置-->
         <dependency>
@@ -83,6 +69,18 @@
             <groupId>cn.msuno</groupId>
             <artifactId>swagger-spring-boot-starter</artifactId>
             <version>${swagger-springboot.version}</version>
+        </dependency>
+<!--        二维码生成-->
+        <dependency>
+            <groupId>com.kuisama.zxing</groupId>
+            <artifactId>zxing-spring-boot-starter</artifactId>
+            <version>1.0.0.RELEASE</version>
+        </dependency>
+<!--        excel导入导出-->
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-poi</artifactId>
+            <version>5.0.6</version>
         </dependency>
     </dependencies>
 </project>
