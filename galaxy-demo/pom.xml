@@ -13,4 +13,7 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>galaxy-demo</name>
     <description>Demo project for Spring Boot</description>
+    <modules>
+        <module>demo-db</module>
+    </modules>
 </project>
