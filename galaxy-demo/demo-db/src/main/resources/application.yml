@@ -9,4 +9,8 @@ spring:
   data:
     mongodb:
       database: test
-      uri: mongodb://116.62.62.146:27017
+      username: test
+      password: test
+      host: 116.62.16.146
+      authentication-database: admin
+      port: 27017
