@@ -20,6 +20,7 @@
         <module>galaxy-business</module>
         <module>galaxy-middleware</module>
         <module>galaxy-common</module>
+        <module>galaxy-demo</module>
     </modules>
 
     <dependencies>
