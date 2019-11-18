@@ -6,7 +6,9 @@ import com.cloud.galaxy.demo.jooq.db.gen.tables.SysUser;
 import com.cloud.galaxy.demo.jooq.db.gen.tables.records.SysUserRecord;
 import com.cloud.galaxy.demo.jooq.entity.SysUserPo;
 import org.jooq.DSLContext;
+
 import static org.jooq.impl.DSL.*;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -55,16 +57,15 @@ public class DemoController {
 
     @GetMapping("selectList")
     public List<SysUserPo> selectList() {
-        List<SysUserPo> list = dslContext.select().from(Tables.SYS_USER).fetch()
-                .stream().map(record -> {
-                    SysUserPo sysUserPo = new SysUserPo();
-                    sysUserPo.setId(record.get(sysUser.ID));
-                    sysUserPo.setBalance(record.get(sysUser.BALANCE));
-                    sysUserPo.setBirth(record.get(sysUser.BIRTH));
-                    sysUserPo.setCreateTime(record.get(sysUser.CREATE_TIME));
-                    sysUserPo.setName(record.get(sysUser.NAME));
-                    return sysUserPo;
-                }).collect(Collectors.toList());
+        List<SysUserPo> list = dslContext.select().from(Tables.SYS_USER).fetch().map(record -> {
+            SysUserPo sysUserPo = new SysUserPo();
+            sysUserPo.setId(record.get(sysUser.ID));
+            sysUserPo.setBalance(record.get(sysUser.BALANCE));
+            sysUserPo.setBirth(record.get(sysUser.BIRTH));
+            sysUserPo.setCreateTime(record.get(sysUser.CREATE_TIME));
+            sysUserPo.setName(record.get(sysUser.NAME));
+            return sysUserPo;
+        });
         return list;
     }
 
