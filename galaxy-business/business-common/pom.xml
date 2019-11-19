@@ -15,7 +15,7 @@
     <description>Demo project for Spring Boot</description>
 
     <modules>
-        <module>business-common-server</module>
-        <module>business-common-client</module>
+        <module>business-common-message</module>
+        <module>business-common-message-client</module>
     </modules>
 </project>

@@ -70,13 +70,17 @@
             <artifactId>swagger-spring-boot-starter</artifactId>
             <version>${swagger-springboot.version}</version>
         </dependency>
-<!--        二维码生成-->
+        <!--        二维码生成-->
         <dependency>
             <groupId>com.kuisama.zxing</groupId>
             <artifactId>zxing-spring-boot-starter</artifactId>
             <version>1.0.0.RELEASE</version>
         </dependency>
-<!--        excel导入导出-->
+        <dependency>
+            <groupId>org.springframework.kafka</groupId>
+            <artifactId>spring-kafka</artifactId>
+        </dependency>
+        <!--        excel导入导出-->
         <dependency>
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-poi</artifactId>

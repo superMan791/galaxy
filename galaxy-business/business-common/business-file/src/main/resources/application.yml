@@ -1,0 +1,12 @@
+server:
+  port: 8001
+spring:
+  application:
+    name: galaxy-business-file
+fdfs:
+  tracker-list: 192.168.21.29:22122
+  connect-timeout: 60
+  so-timeout: 60
+  thumb-image:
+    width: 1
+    height: 1
