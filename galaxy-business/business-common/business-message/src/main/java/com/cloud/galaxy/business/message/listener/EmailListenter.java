@@ -25,7 +25,7 @@ public class EmailListenter {
     @Autowired
     private ObjectMapper objectMapper;
 
-    @KafkaListener(id="email",topics = "email")
+    @KafkaListener(id="emailListener",topics = "email")
     public void emailListener(String message) throws MessagingException, JsonProcessingException {
         EmailMessageDto emailMessageDto=objectMapper.readValue(message,EmailMessageDto.class);
         //如果接收邮件的人是空的，直接返回，不发了
