@@ -20,16 +20,18 @@ public class MessageController {
     @GetMapping("sendSms")
     public void sendSms() {
         Map<String, String> map = new HashMap<>();
-        map.put("name", "tom");
-        map.put("age", "18");
+        map.put("username", "tom");
+        map.put("code", "1001");
+        map.put("timeout","5");
         messageSender.sendSms(new SmsMessageBuilder().withTo(new String[]{"13438902947"}).withParam(map).withTemplateCode("1").build());
     }
 
     @GetMapping("sendEmail")
     public void sendEmail() {
         Map<String, String> map = new HashMap<>();
-        map.put("name", "tom");
-        map.put("age", "18");
+        map.put("username", "tina");
+        map.put("code", "1002");
+        map.put("timeout","10");
         messageSender.sendEmail(new EmailMessageBuilder().withTo(new String[]{"1439097053@qq.com"}).withParam(map).withTemplateCode("2").build());
     }
 }

@@ -2,10 +2,11 @@ spring:
   redis:
     host: 116.62.16.146
     port: 6379
+    #kafka集群配置
   kafka:
-    bootstrap-servers: 116.62.16.146:9092
+    bootstrap-servers: 192.168.21.25:9092,192.168.21.29:9092,192.168.21.30:9092
     consumer:
-      group-id: galaxy
+      group-id: kafka2
       auto-offset-reset: earliest
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
@@ -14,7 +15,20 @@ spring:
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
       batch-size: 65536
       buffer-memory: 524288
-      bootstrap-servers: 116.62.16.146:9092
+      bootstrap-servers: 192.168.21.25:9092,192.168.21.29:9092,192.168.21.30:9092
+#  kafka:
+#    bootstrap-servers: 116.62.16.146:9092
+#    consumer:
+#      group-id: galaxy
+#      auto-offset-reset: earliest
+#      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+#      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+#    producer:
+#      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+#      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+#      batch-size: 65536
+#      buffer-memory: 524288
+#      bootstrap-servers: 116.62.16.146:9092
   jackson:
     # 设置属性命名策略,对应jackson下PropertyNamingStrategy中的常量值，SNAKE_CASE-返回的json驼峰式转下划线，json body下划线传到后端自动转驼峰式
     #property-naming-strategy: SNAKE_CASE

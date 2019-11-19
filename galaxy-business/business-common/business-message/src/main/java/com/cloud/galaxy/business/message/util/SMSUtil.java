@@ -32,7 +32,9 @@ public class SMSUtil {
     public boolean sendSMSContent(String nationCode, String mobile, String content) {
 //        String send_content;
         //发送内容
-
+        if(StringUtils.isBlank(nationCode)){
+            nationCode="86";
+        }
         boolean inputLine = false;
         try {
             if (nationCode.equals("86")) {
