@@ -20,23 +20,6 @@ spring:
       password: test
       database: test
       authentication-database: admin
-  swagger:
-    basePackage: com.cloud.galaxy
-    license:
-      name: galaxy
-  kafka:
-    bootstrap-servers: 116.62.16.146:9092
-    consumer:
-      group-id: galaxy
-      auto-offset-reset: earliest
-      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-    producer:
-      key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: org.apache.kafka.common.serialization.StringSerializer
-      batch-size: 65536
-      buffer-memory: 524288
-      bootstrap-servers: 116.62.16.146:9092
 sms:
   urls: https://BJJS009518:cd2019@sdk2.028lk.com/sdk2/BatchSend2.aspx,https://BJJS009517:cd2019@sdk2.028lk.com/sdk2/BatchSend2.aspx
   international:

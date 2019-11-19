@@ -53,5 +53,10 @@
             <artifactId>spring-boot-starter-kaptcha</artifactId>
             <version>1.0.3.RELEASE</version>
         </dependency>
+        <dependency>
+            <groupId>com.cloud.galaxy.common</groupId>
+            <artifactId>common-core</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 </project>

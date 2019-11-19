@@ -3,6 +3,16 @@ server:
 spring:
   application:
     name: galaxy-business-file
+  profiles:
+    include: common
+  data:
+    mongodb:
+      host: 116.62.16.146
+      port: 27017
+      username: test
+      password: test
+      database: test
+      authentication-database: admin
 fdfs:
   tracker-list: 192.168.21.29:22122
   connect-timeout: 60
