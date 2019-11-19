@@ -20,13 +20,17 @@ public class EmailMessageBuilder {
         return this;
     }
 
-    public EmailMessageBuilder withTo(Map<String, String> param) {
+    public EmailMessageBuilder withParam(Map<String, String> param) {
         this.emailMessageDto.setParam(param);
         return this;
     }
 
-    public EmailMessageBuilder withTo(String templateCode) {
+    public EmailMessageBuilder withTemplateCode(String templateCode) {
         this.emailMessageDto.setTemplateCode(templateCode);
         return this;
+    }
+
+    public EmailMessageDto build() {
+        return this.emailMessageDto;
     }
 }

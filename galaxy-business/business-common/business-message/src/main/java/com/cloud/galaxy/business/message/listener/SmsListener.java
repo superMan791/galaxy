@@ -1,8 +1,8 @@
 package com.cloud.galaxy.business.message.listener;
 
-import com.cloud.galaxy.business.message.client.entity.dto.SmsMessageDto;
 import com.cloud.galaxy.business.message.service.IMessageTemplateService;
 import com.cloud.galaxy.business.message.util.SMSUtil;
+import com.cloud.galaxy.common.core.message.entity.SmsMessageDto;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;

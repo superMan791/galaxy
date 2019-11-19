@@ -1,9 +1,9 @@
 package com.cloud.galaxy.business.message.listener;
 
-import com.cloud.galaxy.business.message.client.entity.dto.EmailMessageDto;
 import com.cloud.galaxy.business.message.entity.EmailMessage;
 import com.cloud.galaxy.business.message.service.IMessageTemplateService;
 import com.cloud.galaxy.business.message.util.SendEmailUtil;
+import com.cloud.galaxy.common.core.message.entity.EmailMessageDto;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;

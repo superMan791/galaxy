@@ -24,4 +24,8 @@ public class SmsMessageBuilder {
         smsMessageDto.setTo(to);
         return this;
     }
+
+    public SmsMessageDto build() {
+        return this.smsMessageDto;
+    }
 }

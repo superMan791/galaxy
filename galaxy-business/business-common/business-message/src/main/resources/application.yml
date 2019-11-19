@@ -5,12 +5,23 @@ spring:
     name: galaxy-business-message
   profiles:
     include: common
+#  mail:
+#    host: smtp.163.com
+#    username:
+#    password:
+#    port: 25
+#    protocol: smtp
+#    default-encoding: UTF-8
   mail:
-    host: smtp.163.com
-    username:
-    password:
-    port: 25
-    protocol: smtp
+    host: smtp.qq.com
+    username: 1083599556@qq.com
+    password: dfiuitmpoqznhdgg
+    properties:
+      mail:
+        smtp:
+          auth: true
+        ssl:
+          enable : true
     default-encoding: UTF-8
   data:
     mongodb:
