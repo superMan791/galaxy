@@ -1,4 +1,4 @@
-package com.cloud.galaxy.middleware.gateway;
+package com.cloud.galaxy;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

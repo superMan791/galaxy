@@ -1,13 +1,13 @@
-package com.cloud.galaxy.middleware.auth;
+package com.cloud.galaxy;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MiddlewareAuthApplication {
+public class MiddlewareEurekaApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(MiddlewareAuthApplication.class, args);
+        SpringApplication.run(MiddlewareEurekaApplication.class, args);
     }
 
 }
