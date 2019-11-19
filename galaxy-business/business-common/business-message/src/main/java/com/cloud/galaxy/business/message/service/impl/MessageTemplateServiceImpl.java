@@ -6,6 +6,7 @@ import com.cloud.galaxy.business.message.entity.po.MessageTemplate;
 import com.cloud.galaxy.business.message.entity.vo.GetMessageTemplateVo;
 import com.cloud.galaxy.business.message.service.IMessageTemplateService;
 import com.cloud.galaxy.common.core.base.BaseServiceImpl;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 @Service
 public class MessageTemplateServiceImpl extends BaseServiceImpl implements IMessageTemplateService {
@@ -27,8 +29,8 @@ public class MessageTemplateServiceImpl extends BaseServiceImpl implements IMess
     }
 
     @Override
-    public void delete(Long id) {
-        messageTemplateRepository.deleteById(id.toString());
+    public void delete(String id) {
+        messageTemplateRepository.deleteById(id);
     }
 
     @Override
@@ -65,16 +67,21 @@ public class MessageTemplateServiceImpl extends BaseServiceImpl implements IMess
     }
 
     @Override
-    public GetMessageTemplateVo getById(Long id) {
-        MessageTemplate messageTemplate = messageTemplateRepository.findById(id.toString()).get();
+    public GetMessageTemplateVo getById(String id) {
+        MessageTemplate messageTemplate = messageTemplateRepository.findById(id).get();
         GetMessageTemplateVo messageTemplateVo = new GetMessageTemplateVo();
         BeanUtils.copyProperties(messageTemplate, messageTemplateVo);
         return messageTemplateVo;
     }
 
     @Override
-    public Page<GetMessageTemplateVo> findByPage(PageRequest pageRequest) {
-        Page<MessageTemplate> page = messageTemplateRepository.findAll(pageRequest);
+    public Page<GetMessageTemplateVo> findByPage(PageRequest pageRequest, String title) {
+        Page<MessageTemplate> page = null;
+        if (StringUtils.isNoneBlank(title)) {
+            page = messageTemplateRepository.findAllByTitleLike(pageRequest, title);
+        } else {
+            page = messageTemplateRepository.findAll(pageRequest);
+        }
         Page<GetMessageTemplateVo> result = page.map((messageTemplate) -> {
             GetMessageTemplateVo getMessageTemplateVo = new GetMessageTemplateVo();
             BeanUtils.copyProperties(messageTemplate, getMessageTemplateVo);

@@ -22,11 +22,11 @@ public interface IMessageTemplateService extends IBaseService {
 
     Boolean insert(MessageTemplate messageTemplate);
 
-    void delete(Long id);
+    void delete(String id);
 
     Boolean updateById(MessageTemplate messageTemplate);
 
-    GetMessageTemplateVo getById(Long id);
+    GetMessageTemplateVo getById(String id);
 
-    Page<GetMessageTemplateVo> findByPage(PageRequest pageRequest);
+    Page<GetMessageTemplateVo> findByPage(PageRequest pageRequest,String title);
 }

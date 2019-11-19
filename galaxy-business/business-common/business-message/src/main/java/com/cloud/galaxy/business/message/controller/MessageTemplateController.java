@@ -43,14 +43,14 @@ public class MessageTemplateController {
 
     @ApiOperation("删除短信模板")
     @DeleteMapping("delete/{id}")
-    public R delete(@PathVariable("id") Long id) {
+    public R delete(@PathVariable("id") String id) {
         messageTemplateService.delete(id);
         return R.ok();
     }
 
     @ApiOperation("修改短信模板")
     @PutMapping("update/{id}")
-    public R update(@Validated @RequestBody MessageTemplateUpdateDto messageTemplateUpdateDto, @PathVariable("id") Long id) {
+    public R update(@Validated @RequestBody MessageTemplateUpdateDto messageTemplateUpdateDto, @PathVariable("id") String id) {
         MessageTemplate messageTemplate = new MessageTemplate();
         BeanUtils.copyProperties(messageTemplateUpdateDto, messageTemplate);
         messageTemplate.setId(id);
@@ -62,7 +62,7 @@ public class MessageTemplateController {
 
     @ApiOperation("根据id查询模板详情")
     @GetMapping("get/{id}")
-    public R<GetMessageTemplateVo> get(@PathVariable("id") Long id) {
+    public R<GetMessageTemplateVo> get(@PathVariable("id") String id) {
         return R.ok(messageTemplateService.getById(id));
     }
 
@@ -70,6 +70,6 @@ public class MessageTemplateController {
     @GetMapping("page")
     @PermitAll
     public R<Page<GetMessageTemplateVo>> findByPage(@RequestParam("pageNo") Integer pageNo, @RequestParam("pageSize") Integer pageSize, @RequestParam("title") String title) {
-        return R.ok(messageTemplateService.findByPage(PageRequest.of(pageNo, pageSize)));
+        return R.ok(messageTemplateService.findByPage(PageRequest.of(pageNo, pageSize),title));
     }
 }

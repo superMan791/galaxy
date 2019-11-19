@@ -11,7 +11,7 @@ import java.util.Date;
 @Data
 public class GetMessageTemplateVo implements Serializable {
 
-    private Long id;
+    private String id;
 
     @ApiModelProperty("引用代码")
     private String code;

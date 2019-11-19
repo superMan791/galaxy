@@ -1,8 +1,6 @@
 package com.cloud.galaxy.common.core.base;
 
-import lombok.Data;
+import java.io.Serializable;
 
-@Data
-public class BaseEntity<T> {
-    private Long id;
+public class BaseEntity<T> implements Serializable {
 }

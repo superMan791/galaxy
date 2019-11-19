@@ -4,6 +4,7 @@ import java.util.Date;
 
 import com.cloud.galaxy.common.core.base.BaseEntity;
 import lombok.Data;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
@@ -20,6 +21,8 @@ public class MessageTemplate extends BaseEntity<MessageTemplate> {
 
     private static final long serialVersionUID = 1L;
 
+    @Id
+    private String id;
     /**
      * 引用代码
      */
