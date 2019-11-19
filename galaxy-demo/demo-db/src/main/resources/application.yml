@@ -1,7 +1,7 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://116.62.16.146:3306/seata?characterEncoding=utf-8&allowMultiQueries=true
+    url: jdbc:mysql://116.62.16.146:3306/demo?characterEncoding=utf-8&allowMultiQueries=true
     username: root
     password: root
   jooq:
@@ -9,4 +9,8 @@ spring:
   data:
     mongodb:
       database: test
-      uri: mongodb://116.62.62.146:27017
+      username: test
+      password: test
+      host: 116.62.16.146
+      authentication-database: admin
+      port: 27017

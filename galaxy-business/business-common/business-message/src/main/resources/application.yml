@@ -6,27 +6,28 @@ spring:
   profiles:
     include: common
   mail:
-    host: mail.btsea.com
-    username: btsea01@btsea.com
+    host: smtp.163.com
+    username:
+    password:
     port: 25
     protocol: smtp
     default-encoding: UTF-8
   data:
     mongodb:
-      host: 192.168.21.30
-      port: 27011
-      username: root
-      password: rootpasswd
-      database: test1
+      host: 116.62.16.146
+      port: 27017
+      username: test
+      password: test
+      database: test
       authentication-database: admin
   swagger:
     basePackage: com.cloud.galaxy
     license:
       name: galaxy
   kafka:
-    bootstrap-servers: 192.168.21.25:9092,192.168.21.29:9092,192.168.21.30:9092
+    bootstrap-servers: 116.62.16.146:9092
     consumer:
-      group-id: kafka2
+      group-id: galaxy
       auto-offset-reset: earliest
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
@@ -35,7 +36,7 @@ spring:
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
       batch-size: 65536
       buffer-memory: 524288
-      bootstrap-servers: 192.168.21.25:9092,192.168.21.29:9092,192.168.21.30:9092
+      bootstrap-servers: 116.62.16.146:9092
 sms:
   urls: https://BJJS009518:cd2019@sdk2.028lk.com/sdk2/BatchSend2.aspx,https://BJJS009517:cd2019@sdk2.028lk.com/sdk2/BatchSend2.aspx
   international:

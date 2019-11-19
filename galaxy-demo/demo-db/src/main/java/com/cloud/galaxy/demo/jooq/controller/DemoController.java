@@ -8,7 +8,8 @@ import com.cloud.galaxy.demo.jooq.entity.SysUserPo;
 import org.jooq.DSLContext;
 
 import static org.jooq.impl.DSL.*;
-
+import org.jooq.Record;
+import org.jooq.SelectQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,6 +19,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RestController
@@ -101,5 +103,20 @@ public class DemoController {
                     Integer count = (Integer) record.get("idCount");
                     return count;
                 }).collect(Collectors.toList());
+    }
+
+    public List<SysUserPo> selectList2(Long id) {
+        SelectQuery<Record> query = dslContext.select().from(sysUser).getQuery();
+        Optional.ofNullable(id).ifPresent(x -> {
+            query.addConditions(sysUser.ID.eq(x));
+        });
+        List<SysUserPo> list = query.fetch().map(u -> {
+            SysUserPo sysUserPo = new SysUserPo();
+            sysUserPo.setId(u.get(sysUser.ID));
+            sysUserPo.setName(u.get(sysUser.NAME));
+            sysUserPo.setBirth(u.get(sysUser.BIRTH));
+            return sysUserPo;
+        });
+        return list;
     }
 }
