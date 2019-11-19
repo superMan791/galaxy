@@ -8,9 +8,9 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <groupId>com.cloud.galaxy.business.common</groupId>
-    <artifactId>business-common-server</artifactId>
+    <artifactId>business-file</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>business-common-server</name>
+    <name>business-file</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
