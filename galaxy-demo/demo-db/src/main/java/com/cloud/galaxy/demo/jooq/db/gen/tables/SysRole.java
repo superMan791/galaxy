@@ -41,7 +41,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class SysRole extends TableImpl<SysRoleRecord> {
 
-    private static final long serialVersionUID = 343707076;
+    private static final long serialVersionUID = -1659292348;
 
     /**
      * The reference instance of <code>demo.sys_role</code>
@@ -62,14 +62,14 @@ public class SysRole extends TableImpl<SysRoleRecord> {
     public final TableField<SysRoleRecord, Long> ID = createField(DSL.name("id"), org.jooq.impl.SQLDataType.BIGINT.nullable(false), this, "");
 
     /**
-     * The column <code>demo.sys_role.role</code>.
-     */
-    public final TableField<SysRoleRecord, String> ROLE = createField(DSL.name("role"), org.jooq.impl.SQLDataType.VARCHAR(50), this, "");
-
-    /**
      * The column <code>demo.sys_role.user_id</code>.
      */
     public final TableField<SysRoleRecord, Long> USER_ID = createField(DSL.name("user_id"), org.jooq.impl.SQLDataType.BIGINT, this, "");
+
+    /**
+     * The column <code>demo.sys_role.role</code>.
+     */
+    public final TableField<SysRoleRecord, String> ROLE = createField(DSL.name("role"), org.jooq.impl.SQLDataType.VARCHAR(50), this, "");
 
     /**
      * Create a <code>demo.sys_role</code> table reference
@@ -155,7 +155,7 @@ public class SysRole extends TableImpl<SysRoleRecord> {
     // -------------------------------------------------------------------------
 
     @Override
-    public Row3<Long, String, Long> fieldsRow() {
+    public Row3<Long, Long, String> fieldsRow() {
         return (Row3) super.fieldsRow();
     }
 }

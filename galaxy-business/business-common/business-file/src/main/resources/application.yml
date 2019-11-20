@@ -15,6 +15,7 @@ spring:
       authentication-database: admin
 fdfs:
   tracker-list: 192.168.21.29:22122
+  search-list: 192.168.21.29:80
   connect-timeout: 60
   so-timeout: 60
   thumb-image:

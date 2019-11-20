@@ -22,13 +22,12 @@ import org.jooq.ForeignKey;
 import org.jooq.Index;
 import org.jooq.Name;
 import org.jooq.Record;
-import org.jooq.Row5;
+import org.jooq.Row6;
 import org.jooq.Schema;
 import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.UniqueKey;
 import org.jooq.impl.DSL;
-import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
 
 
@@ -45,7 +44,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class SysUser extends TableImpl<SysUserRecord> {
 
-    private static final long serialVersionUID = -1431563210;
+    private static final long serialVersionUID = -1304745736;
 
     /**
      * The reference instance of <code>demo.sys_user</code>
@@ -73,17 +72,22 @@ public class SysUser extends TableImpl<SysUserRecord> {
     /**
      * The column <code>demo.sys_user.birth</code>.
      */
-    public final TableField<SysUserRecord, LocalDate> BIRTH = createField(DSL.name("birth"), SQLDataType.LOCALDATE, this, "");
+    public final TableField<SysUserRecord, LocalDate> BIRTH = createField(DSL.name("birth"), org.jooq.impl.SQLDataType.LOCALDATE, this, "");
 
     /**
      * The column <code>demo.sys_user.create_time</code>.
      */
-    public final TableField<SysUserRecord, LocalDateTime> CREATE_TIME = createField(DSL.name("create_time"), SQLDataType.LOCALDATETIME, this, "");
+    public final TableField<SysUserRecord, LocalDateTime> CREATE_TIME = createField(DSL.name("create_time"), org.jooq.impl.SQLDataType.LOCALDATETIME, this, "");
 
     /**
      * The column <code>demo.sys_user.balance</code>.
      */
-    public final TableField<SysUserRecord, BigDecimal> BALANCE = createField(DSL.name("balance"), org.jooq.impl.SQLDataType.DECIMAL.precision(20), this, "");
+    public final TableField<SysUserRecord, BigDecimal> BALANCE = createField(DSL.name("balance"), org.jooq.impl.SQLDataType.DECIMAL(20), this, "");
+
+    /**
+     * The column <code>demo.sys_user.update_time</code>.
+     */
+    public final TableField<SysUserRecord, LocalDateTime> UPDATE_TIME = createField(DSL.name("update_time"), org.jooq.impl.SQLDataType.LOCALDATETIME, this, "");
 
     /**
      * Create a <code>demo.sys_user</code> table reference
@@ -139,6 +143,11 @@ public class SysUser extends TableImpl<SysUserRecord> {
     }
 
     @Override
+    public TableField<SysUserRecord, LocalDateTime> getRecordVersion() {
+        return UPDATE_TIME;
+    }
+
+    @Override
     public SysUser as(String alias) {
         return new SysUser(DSL.name(alias), this);
     }
@@ -165,11 +174,11 @@ public class SysUser extends TableImpl<SysUserRecord> {
     }
 
     // -------------------------------------------------------------------------
-    // Row5 type methods
+    // Row6 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row5<Long, String, LocalDate, LocalDateTime, BigDecimal> fieldsRow() {
-        return (Row5) super.fieldsRow();
+    public Row6<Long, String, LocalDate, LocalDateTime, BigDecimal, LocalDateTime> fieldsRow() {
+        return (Row6) super.fieldsRow();
     }
 }
