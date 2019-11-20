@@ -21,8 +21,10 @@
         <name>org.jooq.codegen.JavaGenerator</name>
 
         <database>
-            <!--      乐观锁字段名称,我使用的是update_time时间戳-->
-<!--            <recordVersionFields>update_time</recordVersionFields>-->
+            <!--      乐观锁字段,通过数据版本进行控制-->
+<!--            <recordVersionFields>rec_version</recordVersionFields>-->
+            <!--            乐观锁字段,通过时间戳控制-->
+            <recordTimestampFields>update_time</recordTimestampFields>
             <!--         禁止将bigDecimal转成BigInt-->
             <forceIntegerTypesOnZeroScaleDecimals>false</forceIntegerTypesOnZeroScaleDecimals>
             <!-- The database type. The format here is:

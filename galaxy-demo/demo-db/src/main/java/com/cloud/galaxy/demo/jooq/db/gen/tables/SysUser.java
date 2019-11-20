@@ -44,7 +44,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class SysUser extends TableImpl<SysUserRecord> {
 
-    private static final long serialVersionUID = -254623400;
+    private static final long serialVersionUID = 1774846198;
 
     /**
      * The reference instance of <code>demo.sys_user</code>
@@ -140,6 +140,11 @@ public class SysUser extends TableImpl<SysUserRecord> {
     @Override
     public List<UniqueKey<SysUserRecord>> getKeys() {
         return Arrays.<UniqueKey<SysUserRecord>>asList(Keys.KEY_SYS_USER_PRIMARY);
+    }
+
+    @Override
+    public TableField<SysUserRecord, LocalDateTime> getRecordTimestamp() {
+        return UPDATE_TIME;
     }
 
     @Override

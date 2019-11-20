@@ -5,9 +5,11 @@ import com.cloud.galaxy.demo.jooq.db.gen.tables.SysRole;
 import com.cloud.galaxy.demo.jooq.db.gen.tables.SysUser;
 import com.cloud.galaxy.demo.jooq.db.gen.tables.records.SysUserRecord;
 import com.cloud.galaxy.demo.jooq.entity.SysUserPo;
+import lombok.extern.log4j.Log4j2;
 import org.jooq.DSLContext;
 
 import static org.jooq.impl.DSL.*;
+
 import org.jooq.Record;
 import org.jooq.SelectQuery;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +24,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+@Log4j2
 @RestController
 public class DemoController {
     private SysUser sysUser = SysUser.SYS_USER;
@@ -105,6 +108,7 @@ public class DemoController {
                 }).collect(Collectors.toList());
     }
 
+    @GetMapping("selectList2")
     public List<SysUserPo> selectList2(Long id) {
         SelectQuery<Record> query = dslContext.select().from(sysUser).getQuery();
         Optional.ofNullable(id).ifPresent(x -> {
@@ -118,5 +122,16 @@ public class DemoController {
             return sysUserPo;
         });
         return list;
+    }
+
+    //乐观锁测试
+    @GetMapping("update")
+    public void update() {
+        SysUserRecord record1 = dslContext.fetchOne(sysUser, sysUser.ID.eq(1l));
+        SysUserRecord record2 = dslContext.fetchOne(sysUser, sysUser.ID.eq(1l));
+        record1.setName("x");
+        record2.setName("xx");
+        log.info("record1的修改结果："+(record1.store()>0));
+        log.info("record2的修改结果："+(record2.store()>0));
     }
 }
