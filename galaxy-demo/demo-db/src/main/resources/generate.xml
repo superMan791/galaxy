@@ -22,7 +22,7 @@
 
         <database>
             <!--      乐观锁字段名称,我使用的是update_time时间戳-->
-            <recordVersionFields>update_time</recordVersionFields>
+<!--            <recordVersionFields>update_time</recordVersionFields>-->
             <!--         禁止将bigDecimal转成BigInt-->
             <forceIntegerTypesOnZeroScaleDecimals>false</forceIntegerTypesOnZeroScaleDecimals>
             <!-- The database type. The format here is:
