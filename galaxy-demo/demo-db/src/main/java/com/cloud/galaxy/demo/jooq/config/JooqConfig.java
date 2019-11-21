@@ -2,6 +2,7 @@ package com.cloud.galaxy.demo.jooq.config;
 
 
 import org.jooq.conf.Settings;
+import org.jooq.conf.StatementType;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

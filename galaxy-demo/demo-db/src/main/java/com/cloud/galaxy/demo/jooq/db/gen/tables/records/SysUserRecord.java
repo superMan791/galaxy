@@ -12,10 +12,8 @@ import java.time.LocalDateTime;
 
 import javax.annotation.processing.Generated;
 
-import org.jooq.Field;
-import org.jooq.Record1;
-import org.jooq.Record6;
-import org.jooq.Row6;
+import com.cloud.galaxy.demo.jooq.entity.SysUserPo;
+import org.jooq.*;
 import org.jooq.impl.UpdatableRecordImpl;
 
 
