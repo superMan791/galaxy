@@ -12,6 +12,7 @@ import static org.jooq.impl.DSL.*;
 
 import org.jooq.Record;
 import org.jooq.SelectQuery;
+import org.jooq.impl.DefaultDSLContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -124,6 +125,27 @@ public class DemoController {
         return list;
     }
 
+    //用seek代替limit提示查询效率
+    @GetMapping("selectListBySeek")
+    public List<SysUserPo> selectListBySeek() {
+        List<SysUserPo> sysUserPos = dslContext.select().from(sysUser).orderBy(sysUser.ID).seek(5l).limit(10).fetch()
+                .map(record -> {
+                    SysUserPo sysUserPo = new SysUserPo();
+                    sysUserPo.setId(record.get(sysUser.ID));
+                    sysUserPo.setName(record.get(sysUser.NAME));
+                    sysUserPo.setBalance(record.get(sysUser.BALANCE));
+                    return sysUserPo;
+                });
+        return sysUserPos;
+    }
+
+    //查询，并使用forUpdate锁定当前行，在事务提交之前，其他链接无法对这条数据进行修改和删除操作
+    @GetMapping("selectForUpdate")
+    public SysUserRecord selectForUpdate() {
+        SysUserRecord sysUserRecord = dslContext.selectFrom(sysUser).where(sysUser.ID.eq(1l)).forUpdate().fetchOne();
+        return sysUserRecord;
+    }
+
     //乐观锁测试
     @GetMapping("update")
     public void update() {
@@ -131,7 +153,21 @@ public class DemoController {
         SysUserRecord record2 = dslContext.fetchOne(sysUser, sysUser.ID.eq(1l));
         record1.setName("x");
         record2.setName("xx");
-        log.info("record1的修改结果："+(record1.store()>0));
-        log.info("record2的修改结果："+(record2.store()>0));
+        log.info("record1的修改结果：" + (record1.store() > 0));
+        log.info("record2的修改结果：" + (record2.store() > 0));
+    }
+
+    // onDuplicateKeyUpdate 如果不存在，添加记录，如果已存在，修改记录
+    @GetMapping("onDuplicateKeyUpdate")
+    public void onDuplicateKeyUpdate() {
+        dslContext.insertInto(sysUser, sysUser.ID, sysUser.BALANCE).values(1l, new BigDecimal("12"))
+                .onDuplicateKeyUpdate().set(sysUser.BALANCE, new BigDecimal("15")).execute();
+    }
+
+    //onDuplicateKeyIgnore 如果记录不存在，就插入记录。如果记录已存在，就不插入
+    @GetMapping("onDuplicateKeyIgnore")
+    public void onDuplicateKeyIgnore() {
+        Integer result = dslContext.insertInto(sysUser, sysUser.ID, sysUser.BALANCE).values(1l, new BigDecimal(12)).onDuplicateKeyIgnore().execute();
+        log.info(result);
     }
 }
