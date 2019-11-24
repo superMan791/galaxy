@@ -1,5 +1,6 @@
-package com.cloud.galaxy.common.core.base;
+package com.cloud.galaxy.common.core.exception;
 
+import com.cloud.galaxy.common.core.base.R;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.BindException;
