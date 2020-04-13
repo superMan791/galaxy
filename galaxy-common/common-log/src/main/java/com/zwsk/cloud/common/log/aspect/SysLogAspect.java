@@ -8,16 +8,22 @@ import lombok.extern.log4j.Log4j2;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Arrays;
 
+/**
+ * TODO 日志拦截器
+ *
+ * @author yzp
+ * @date 2020/4/13 0013 8:34
+ */
 @Aspect
 @Component
 @Log4j2
@@ -32,11 +38,22 @@ public class SysLogAspect {
     private String serviceId;
     @Value("${sys.log.kafka.topic:sysLog}")
     private String topic;
-    @Autowired
+    @Resource
     private KafkaTemplate kafkaTemplate;
-    @Autowired
+    @Resource
     private ObjectMapper objectMapper;
 
+
+    /**
+     * 环绕切面，捕获方法的日志信息
+     *
+     * @param point
+     * @param sysLog
+     * @return {@link Object}
+     * @throws
+     * @author yzp
+     * @date 2020/4/13 0013 8:44
+     */
     @Around("@annotation(sysLog)")
     public Object around(ProceedingJoinPoint point, SysLog sysLog) throws Throwable {
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();

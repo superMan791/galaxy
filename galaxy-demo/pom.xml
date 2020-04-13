@@ -12,8 +12,10 @@
     <artifactId>galaxy-demo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>galaxy-demo</name>
+    <packaging>pom</packaging>
     <description>Demo project for Spring Boot</description>
     <modules>
-        <module>demo-db</module>
+        <module>demo-jooq</module>
+        <module>demo-poi</module>
     </modules>
 </project>

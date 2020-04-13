@@ -6,6 +6,12 @@ import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 
+/**
+ * TODO 返回值封装
+ *
+ * @author yzp
+ * @date 2020/4/13 0013 8:34
+ */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

@@ -6,7 +6,6 @@
         <groupId>com.cloud.galaxy</groupId>
         <artifactId>galaxy</artifactId>
         <version>0.0.1-SNAPSHOT</version>
-        <relativePath/>
     </parent>
     <groupId>com.cloud.galaxy</groupId>
     <artifactId>galaxy-business</artifactId>

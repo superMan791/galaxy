@@ -1,12 +1,10 @@
 package com.zwsk.cloud.common.log.contanst;
 
 /**
- * @ClassName: SysLogColumnEnum
- * @Description: 日志字段枚举类，在@SysLog注解中保留或禁用某个字段时使用
- * @Author: 于志平
- * @CreateDate: 2019-08-29 10:25
- * @ModifiedDate:
- * @Version: 1.0
+ * TODO 日志参数的枚举
+ *
+ * @author yzp
+ * @date 2020/4/13 0013 8:34
  */
 public interface SysLogColumnEnum {
     String TITLE = "title";

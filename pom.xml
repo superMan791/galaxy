@@ -10,10 +10,13 @@
     <description>Demo project for Spring Boot</description>
 
     <properties>
-        <spring-boot.version>2.2.1.RELEASE</spring-boot.version>
+        <spring-boot.version>2.2.6.RELEASE</spring-boot.version>
         <java.version>11</java.version>
-        <spring-cloud.version>Hoxton.RC2</spring-cloud.version>
+        <spring-cloud.version>Hoxton.SR3</spring-cloud.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <spring.boot.admin.version>2.2.2</spring.boot.admin.version>
+        <jasypt.version>3.0.2</jasypt.version>
+        <spring-cloud-alibaba.version>2.2.1.RELEASE</spring-cloud-alibaba.version>
     </properties>
 
     <modules>
@@ -24,25 +27,34 @@
     </modules>
 
     <dependencies>
+<!--        端点监控-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
-            <scope>runtime</scope>
-            <optional>true</optional>
-        </dependency>
+<!--        lombok-->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
+        <!-- spring-boot-admin监控客户端-->
+        <dependency>
+            <groupId>de.codecentric</groupId>
+            <artifactId>spring-boot-admin-starter-client</artifactId>
+            <version>${spring.boot.admin.version}</version>
+        </dependency>
+<!--        加解密-->
+        <dependency>
+            <groupId>com.github.ulisesbocchio</groupId>
+            <artifactId>jasypt-spring-boot-starter</artifactId>
+            <version>${jasypt.version}</version>
+        </dependency>
     </dependencies>
 
     <dependencyManagement>
         <dependencies>
+<!--            spring-boot-->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
@@ -50,10 +62,19 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+<!--            spring-cloud-->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
                 <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!--spring cloud alibaba-->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -80,13 +101,5 @@
 
         </plugins>
     </build>
-
-    <repositories>
-        <repository>
-            <id>spring-milestones</id>
-            <name>Spring Milestones</name>
-            <url>https://repo.spring.io/milestone</url>
-        </repository>
-    </repositories>
 
 </project>

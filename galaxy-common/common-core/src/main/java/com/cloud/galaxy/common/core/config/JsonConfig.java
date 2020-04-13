@@ -22,6 +22,13 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
+
+/**
+ * TODO json序列化配置
+ *
+ * @author yzp
+ * @date 2020/4/13 0013 8:34
+ */
 @Configuration
 @ConditionalOnClass(ObjectMapper.class)
 @AutoConfigureBefore(JacksonAutoConfiguration.class)
@@ -34,6 +41,12 @@ public class JsonConfig {
     }
 }
 
+/**
+ * TODO 自定义序列化module
+ *
+ * @author yzp
+ * @date 2020/4/13 0013 8:34
+ */
 class GalaxyObjectMapperModule extends SimpleModule {
 
     public GalaxyObjectMapperModule() {

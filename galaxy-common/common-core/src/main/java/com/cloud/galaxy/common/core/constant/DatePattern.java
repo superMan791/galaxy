@@ -1,6 +1,11 @@
 package com.cloud.galaxy.common.core.constant;
 
-
+/**
+ * TODO 日期格式枚举类
+ *
+ * @author yzp
+ * @date 2020/4/13 0013 8:34
+ */
 public class DatePattern {
 
     //-------------------------------------------------------------------------------------------------------------------------------- Normal

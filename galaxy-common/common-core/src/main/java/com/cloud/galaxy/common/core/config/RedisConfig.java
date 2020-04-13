@@ -14,7 +14,10 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 
 /**
- * Redis配置
+ * TODO Redis配置
+ *
+ * @author yzp
+ * @date 2020/4/13 0013 8:34
  */
 @EnableCaching
 @Configuration

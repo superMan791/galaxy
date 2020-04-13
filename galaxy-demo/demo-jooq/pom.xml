@@ -9,13 +9,13 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.cloud.galaxy.demo</groupId>
-    <artifactId>demo-db</artifactId>
+    <artifactId>demo-jooq</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>demo-db</name>
+    <name>demo-jooq</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
-        <jooq.version>3.12.3</jooq.version>
+        <jooq.version>3.13.1</jooq.version>
     </properties>
 
     <dependencies>

@@ -18,8 +18,11 @@
     <properties>
         <guava.version>28.1-jre</guava.version>
         <common-codec>1.13</common-codec>
-        <swagger-springboot.version>2.2.0</swagger-springboot.version>
+        <swagger-springboot.version>2.5.2</swagger-springboot.version>
         <servlet.version>4.0.1</servlet.version>
+        <poi.version>4.1.1</poi.version>
+        <hutool.version>5.3.0</hutool.version>
+        <zxing.version>1.0.0.RELEASE</zxing.version>
     </properties>
 
     <dependencies>
@@ -82,18 +85,18 @@
         <dependency>
             <groupId>com.kuisama.zxing</groupId>
             <artifactId>zxing-spring-boot-starter</artifactId>
-            <version>1.0.0.RELEASE</version>
+            <version>${zxing.version}</version>
         </dependency>
         <!--        excel导入导出-->
         <dependency>
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-poi</artifactId>
-            <version>5.0.6</version>
+            <version>${hutool.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi-ooxml</artifactId>
-            <version>4.1.1</version>
+            <version>${poi.version}</version>
         </dependency>
     </dependencies>
 </project>

@@ -16,7 +16,6 @@
     <description>Demo project for Spring Boot</description>
 
     <modules>
-        <module>middleware-auth</module>
         <module>middleware-eureka</module>
         <module>middleware-gateway</module>
         <module>middleware-job</module>

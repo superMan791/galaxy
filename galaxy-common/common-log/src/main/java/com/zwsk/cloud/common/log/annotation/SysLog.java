@@ -3,12 +3,10 @@ package com.zwsk.cloud.common.log.annotation;
 import java.lang.annotation.*;
 
 /**
- * @ClassName: SysLog
- * @Description: 日志注解
- * @Author: 于志平
- * @CreateDate: 2019-08-29 10:25
- * @ModifiedDate:
- * @Version: 1.0
+ * TODO 日志对象
+ *
+ * @author yzp
+ * @date 2020/4/13 0013 8:34
  */
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)

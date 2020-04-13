@@ -13,21 +13,27 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * @ClassName: SysLogUtil
- * @Description: 日志收集工具类
- * @Author: 于志平
- * @CreateDate: 2019-08-29 11:12
- * @ModifiedDate:
- * @Version: 1.0
+ * TODO 日志收集工具类
+ *
+ * @author yzp
+ * @date 2020/4/13 0013 8:34
  */
 @Component
 public class SysLogUtil {
 
     /**
-     * 方法执行前，将请求相关信息保存到日志中
+     * 方法执行前记录方法参数
      *
      * @param sysLogPO
      * @param title
+     * @param serviceId
+     * @param traceId
+     * @param column
+     * @param columnHidden
+     * @return
+     * @throws
+     * @author yzp
+     * @date 2020/4/13 0013 8:33
      */
     public static void before(SysLogPo sysLogPO, String title, String serviceId, String traceId, List<String> column, List<String> columnHidden) throws JsonProcessingException {
         HttpServletRequest request = ((ServletRequestAttributes) Objects
@@ -70,6 +76,10 @@ public class SysLogUtil {
      * @param obj
      * @param column
      * @param columnHidden
+     * @return
+     * @throws
+     * @author yzp
+     * @date 2020/4/13 0013 8:48
      */
     public static void afterRunning(SysLogPo sysLogPO, Object obj, List<String> column, List<String> columnHidden) throws JsonProcessingException {
         if (column.contains(SysLogColumnEnum.TYPE) && !columnHidden.contains(SysLogColumnEnum.TYPE)) {
@@ -92,6 +102,10 @@ public class SysLogUtil {
      * @param throwable
      * @param column
      * @param columnHidden
+     * @return
+     * @throws
+     * @author yzp
+     * @date 2020/4/13 0013 8:48
      */
     public static void afterThrowing(SysLogPo sysLogPO, Throwable throwable, List<String> column, List<String> columnHidden) {
         if (column.contains(SysLogColumnEnum.TYPE) && !columnHidden.contains(SysLogColumnEnum.TYPE)) {

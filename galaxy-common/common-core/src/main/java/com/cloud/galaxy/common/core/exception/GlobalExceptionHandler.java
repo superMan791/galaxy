@@ -11,6 +11,12 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import javax.validation.ConstraintViolationException;
 
+/**
+ * TODO 全局异常捕获类
+ *
+ * @author yzp
+ * @date 2020/4/13 0013 8:34
+ */
 @Log4j2
 @RestControllerAdvice
 public class GlobalExceptionHandler {
@@ -27,11 +33,12 @@ public class GlobalExceptionHandler {
 
     /**
      * post请求参数校验抛出的异常
+     *
      * @param e
      * @return
      */
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public R methodArgumentNotValidExceptionHandler(MethodArgumentNotValidException e){
+    public R methodArgumentNotValidExceptionHandler(MethodArgumentNotValidException e) {
         e.printStackTrace();
         //获取异常中随机一个异常信息
         String defaultMessage = e.getBindingResult().getFieldError().getDefaultMessage();
@@ -40,11 +47,12 @@ public class GlobalExceptionHandler {
 
     /**
      * get请求参数校验抛出的异常
+     *
      * @param e
      * @return
      */
     @ExceptionHandler(BindException.class)
-    public R bindExceptionHandler(BindException e){
+    public R bindExceptionHandler(BindException e) {
         e.printStackTrace();
         //获取异常中随机一个异常信息
         String defaultMessage = e.getBindingResult().getFieldError().getDefaultMessage();
@@ -53,11 +61,12 @@ public class GlobalExceptionHandler {
 
     /**
      * 请求方法中校验抛出的异常
+     *
      * @param e
      * @return
      */
     @ExceptionHandler(ConstraintViolationException.class)
-    public R constraintViolationExceptionHandler(ConstraintViolationException e){
+    public R constraintViolationExceptionHandler(ConstraintViolationException e) {
         e.printStackTrace();
         //获取异常中第一个错误信息
         String message = e.getConstraintViolations().iterator().next().getMessage();
