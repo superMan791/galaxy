@@ -15,7 +15,13 @@
     <packaging>pom</packaging>
     <description>Demo project for Spring Boot</description>
     <modules>
+        <module>demo-amqp</module>
+        <module>demo-cache</module>
+        <module>demo-java</module>
         <module>demo-jooq</module>
+        <module>demo-mybatis</module>
+        <module>demo-netty</module>
         <module>demo-poi</module>
+        <module>demo-spring</module>
     </modules>
 </project>

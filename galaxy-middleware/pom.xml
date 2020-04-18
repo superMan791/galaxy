@@ -18,7 +18,6 @@
     <modules>
         <module>middleware-eureka</module>
         <module>middleware-gateway</module>
-        <module>middleware-job</module>
     </modules>
 
 </project>
