@@ -10,6 +10,7 @@ import org.jooq.*;
 
 import static org.jooq.impl.DSL.*;
 
+import org.jooq.Record;
 import org.jooq.impl.DSL;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

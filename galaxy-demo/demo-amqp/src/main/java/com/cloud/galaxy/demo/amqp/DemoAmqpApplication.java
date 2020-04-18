@@ -1,0 +1,13 @@
+package com.cloud.galaxy.demo.amqp;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class DemoAmqpApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(DemoAmqpApplication.class, args);
+    }
+
+}
