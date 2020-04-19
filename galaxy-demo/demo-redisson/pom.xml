@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.cloud.galaxy.demo</groupId>
-    <artifactId>demo-amqp</artifactId>
+    <artifactId>demo-redisson</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>demo-amqp</name>
+    <name>demo-redisson</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
@@ -21,7 +21,19 @@
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-amqp</artifactId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.junit.vintage</groupId>
+                    <artifactId>junit-vintage-engine</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
     </dependencies>
 

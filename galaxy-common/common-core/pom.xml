@@ -23,9 +23,15 @@
         <poi.version>4.1.1</poi.version>
         <hutool.version>5.3.0</hutool.version>
         <zxing.version>1.0.0.RELEASE</zxing.version>
+        <redisson.version>3.12.5</redisson.version>
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>org.redisson</groupId>
+            <artifactId>redisson-spring-boot-starter</artifactId>
+            <version>${redisson.version}</version>
+        </dependency>
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
